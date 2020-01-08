@@ -3,20 +3,26 @@ package sucessoTDD;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-
-import Utility.Utils;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class testeCadastrarSucesso {
 
+	private WebDriver driver;
+
 	@Before
 	public void carregar() {
-		Utils.openBrowser("Chrome");
-		Utils.openURL("http://www.advantageonlineshopping.com/#/");
+		driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("http://www.advantageonlineshopping.com/#/");
 	}
 
 	@Test
-	public void cadastrar() {
-		Utils.driver.findElements(By.xpath("//*[@id=\"hrefUserIcon\"]"));
+	public void cadastrar() throws InterruptedException {
+		Thread.sleep(1000);
+		WebElement bntLogin = driver.findElement(By.id("hrefUserIcon"));
+		bntLogin.click();
 		System.out.println("Chegou aqui");
 	}
 
