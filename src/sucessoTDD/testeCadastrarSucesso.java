@@ -1,18 +1,23 @@
 package sucessoTDD;
 
 import org.junit.Before;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.junit.Test;
+import org.openqa.selenium.By;
+
+import Utility.Utils;
 
 public class testeCadastrarSucesso {
 
-
 	@Before
 	public void carregar() {
-		WebDriver driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		driver.get("http://www.advantageonlineshopping.com/#/");
+		Utils.openBrowser("Chrome");
+		Utils.openURL("http://www.advantageonlineshopping.com/#/");
 	}
 
+	@Test
+	public void cadastrar() {
+		Utils.driver.findElements(By.xpath("//*[@id=\"hrefUserIcon\"]"));
+		System.out.println("Chegou aqui");
+	}
 
 }
