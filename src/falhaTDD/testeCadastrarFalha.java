@@ -1,4 +1,6 @@
-package sucessoTDD;
+package falhaTDD;
+
+import static org.junit.Assert.assertFalse;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import utility.Utils;
 
-public class testeCadastrarSucesso {
+public class testeCadastrarFalha {
 
 	private WebDriver driver;
 	private JavascriptExecutor scroll;
@@ -36,7 +38,7 @@ public class testeCadastrarSucesso {
 		Thread.sleep(1000);
 
 		// Preencher os detalhes da conta
-		driver.findElement(By.name("usernameRegisterPage")).sendKeys("abdielcordeiro");
+		driver.findElement(By.name("usernameRegisterPage")).sendKeys("abdielordeiro");
 
 		driver.findElement(By.name("emailRegisterPage")).sendKeys("teste@rsinet.com.br");
 
@@ -72,11 +74,16 @@ public class testeCadastrarSucesso {
 		// Botão de confirmar
 		driver.findElement(By.id("register_btnundefined")).click();
 
+		WebElement teste = driver.findElement(By.xpath("//*[@id=\"registerPage\"]/article/sec-form/div[2]/label[1]"));
+		String nome = teste.getText();
+
+		assertFalse("Usuário duplicado", nome.equals("User name already exists"));
+
 	}
 
 	@After
 	public void encerrar() {
-		Utils.closeBrowser(driver);
+		// Utils.closeBrowser(driver);
 	}
 
 }
