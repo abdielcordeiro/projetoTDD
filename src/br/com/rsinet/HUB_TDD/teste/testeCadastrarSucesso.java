@@ -23,10 +23,9 @@ public class testeCadastrarSucesso {
 		driver = Utils.openBrowser("Firefox", "http://www.advantageonlineshopping.com/#/");
 		scroll = (JavascriptExecutor) driver;
 
-		Thread.sleep(1000);
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		WebElement bntLogar = driver.findElement(By.id("hrefUserIcon"));
 		bntLogar.click();
-		Thread.sleep(3000);
 		WebElement bntCadastrar = driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]"));
 		bntCadastrar.click();
 	}
@@ -75,8 +74,9 @@ public class testeCadastrarSucesso {
 	}
 
 	@After
-	public void encerrar() {
-		Utils.closeBrowser(driver);
+	public void encerrar() throws Exception {
+		Utils.takeSnapShot("testeComSucesso");
+		// Utils.closeBrowser(driver);
 	}
 
 }

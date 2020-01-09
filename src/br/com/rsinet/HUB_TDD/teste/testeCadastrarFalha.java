@@ -82,8 +82,9 @@ public class testeCadastrarFalha {
 	}
 
 	@After
-	public void encerrar() {
-		Utils.closeBrowser(driver);
+	public void encerrar() throws Exception {
+		Utils.takeSnapShot("testeComFalha");
+		//Utils.closeBrowser(driver);
 	}
 
 }

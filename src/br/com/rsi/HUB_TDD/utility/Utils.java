@@ -1,5 +1,10 @@
 package br.com.rsi.HUB_TDD.utility;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -29,7 +34,23 @@ public class Utils {
 
 	public static void closeBrowser(WebDriver driver) {
 		driver.close();
-		driver.quit();
+	}
+
+	private void takeScreenShot(String fname) throws Exception {
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String imageFileDir = System.getProperty("selenium.screenshot.dir");
+		if (imageFileDir == null)
+			imageFileDir = System.getProperty("java.io.tmpdir");
+		FileUtils.copyFile(scrFile, new File(imageFileDir, fname));
+	}
+
+	public static void takeSnapShot(String nomeDoArquivoImagem) throws Exception {
+
+		TakesScreenshot scrShot = ((TakesScreenshot) driver);
+		File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
+		String imageFileDir = "C://Users//abdiel.cordeiro//Pictures//";
+		FileUtils.copyFile(srcFile, new File(imageFileDir, nomeDoArquivoImagem + ".png"));
+
 	}
 
 
