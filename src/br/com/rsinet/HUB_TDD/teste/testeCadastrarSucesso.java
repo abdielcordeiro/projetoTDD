@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsi.HUB_TDD.utility.Utils;
+import br.com.rsi.HUB_TDD.utility.print;
 
 public class testeCadastrarSucesso {
 
@@ -24,7 +26,7 @@ public class testeCadastrarSucesso {
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome","http://www.advantageonlineshopping.com/#/");
 		scroll = (JavascriptExecutor) driver;
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		WebElement bntLogar = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
@@ -34,7 +36,7 @@ public class testeCadastrarSucesso {
 		WebElement bntCadastrar = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
 		bntCadastrar.click();
-		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).click();
+		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).sendKeys(Keys.ENTER);;
 
 	}
 
@@ -83,7 +85,7 @@ public class testeCadastrarSucesso {
 
 	@After
 	public void encerrar() throws Exception {
-		Utils.takeSnapShot("testeComSucesso");
+		print.takeSnapShot("testeComSucesso");
 		Utils.closeBrowser(driver);
 	}
 

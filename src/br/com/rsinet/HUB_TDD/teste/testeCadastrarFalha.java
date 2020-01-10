@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsi.HUB_TDD.utility.Utils;
+import br.com.rsi.HUB_TDD.utility.print;
 
 public class testeCadastrarFalha {
 
@@ -25,9 +27,9 @@ public class testeCadastrarFalha {
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome", "http://www.advantageonlineshopping.com/#/");
 		scroll = (JavascriptExecutor) driver;
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		WebElement bntLogar = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
 		bntLogar.click();
 		// driver.findElement(By.id("hrefUserIcon")).click();
@@ -35,7 +37,7 @@ public class testeCadastrarFalha {
 		WebElement bntCadastrar = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
 		bntCadastrar.click();
-		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).click();
+		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).sendKeys(Keys.ENTER);
 
 	}
 
@@ -44,7 +46,7 @@ public class testeCadastrarFalha {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		// Preencher os detalhes da conta
-		driver.findElement(By.name("usernameRegisterPage")).sendKeys("abdielordeiro");
+		driver.findElement(By.name("usernameRegisterPage")).sendKeys("abdielAAAAordeiro");
 
 		driver.findElement(By.name("emailRegisterPage")).sendKeys("teste@rsinet.com.br");
 
@@ -81,17 +83,17 @@ public class testeCadastrarFalha {
 		driver.findElement(By.id("register_btnundefined")).click();
 
 		WebElement labelMensagem = driver
-				.findElement(By.xpath("/html/body/div[3]/section/article/sec-form/div[2]/label[1]"));
+				.findElement(By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[1]/sec-view[1]/div/label"));
 		String mensagem = labelMensagem.getText();
 		System.out.println("Teste mensagem: " + mensagem);
-		Assert.assertFalse("Usuário duplicado", mensagem.equals("User name already exists"));
+		Assert.assertFalse("Login de acesso invalido, mais caracteres do que o permitido", mensagem.equals("Use maximum 15 character"));
 
 	}
 
 	@After
 	public void encerrar() throws Exception {
-		Utils.takeSnapShot("testeComFalha");
-		// Utils.closeBrowser(driver);
+		print.takeSnapShot("testeCadastroFalha");
+		Utils.closeBrowser(driver);
 	}
 
 }
