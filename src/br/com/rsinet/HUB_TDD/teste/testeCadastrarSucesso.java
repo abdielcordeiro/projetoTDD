@@ -9,7 +9,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsi.HUB_TDD.utility.Utils;
 
@@ -20,19 +22,25 @@ public class testeCadastrarSucesso {
 
 	@Before
 	public void carregar() throws Exception {
-		driver = Utils.openBrowser("Firefox", "http://www.advantageonlineshopping.com/#/");
+		driver = Utils.openBrowser("Chrome","http://www.advantageonlineshopping.com/#/");
 		scroll = (JavascriptExecutor) driver;
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-		WebElement bntLogar = driver.findElement(By.id("hrefUserIcon"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebElement bntLogar = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
 		bntLogar.click();
-		WebElement bntCadastrar = driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]"));
+		//driver.findElement(By.id("hrefUserIcon")).click();
+
+		WebElement bntCadastrar = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
 		bntCadastrar.click();
+		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).click();
+
 	}
 
 	@Test
 	public void cadastrar() throws InterruptedException {
-		Thread.sleep(1000);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// Preencher os detalhes da conta
 		driver.findElement(By.name("usernameRegisterPage")).sendKeys("abdielcordeiro");
@@ -76,7 +84,7 @@ public class testeCadastrarSucesso {
 	@After
 	public void encerrar() throws Exception {
 		Utils.takeSnapShot("testeComSucesso");
-		// Utils.closeBrowser(driver);
+		//Utils.closeBrowser(driver);
 	}
 
 }

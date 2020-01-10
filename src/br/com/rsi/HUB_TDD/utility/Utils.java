@@ -36,14 +36,6 @@ public class Utils {
 		driver.close();
 	}
 
-	private void takeScreenShot(String fname) throws Exception {
-		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String imageFileDir = System.getProperty("selenium.screenshot.dir");
-		if (imageFileDir == null)
-			imageFileDir = System.getProperty("java.io.tmpdir");
-		FileUtils.copyFile(scrFile, new File(imageFileDir, fname));
-	}
-
 	public static void takeSnapShot(String nomeDoArquivoImagem) throws Exception {
 
 		TakesScreenshot scrShot = ((TakesScreenshot) driver);
