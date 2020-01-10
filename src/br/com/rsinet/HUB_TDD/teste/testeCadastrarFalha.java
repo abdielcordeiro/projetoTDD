@@ -1,17 +1,18 @@
 package br.com.rsinet.HUB_TDD.teste;
 
-import static org.junit.Assert.assertFalse;
-
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsi.HUB_TDD.utility.Utils;
 
@@ -22,20 +23,25 @@ public class testeCadastrarFalha {
 
 	@Before
 	public void carregar() throws Exception {
-		driver = Utils.openBrowser("Firefox", "http://www.advantageonlineshopping.com/#/");
+		driver = Utils.openBrowser("Chrome", "http://www.advantageonlineshopping.com/#/");
 		scroll = (JavascriptExecutor) driver;
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
-		Thread.sleep(1000);
-		WebElement bntLogar = driver.findElement(By.id("hrefUserIcon"));
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebElement bntLogar = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
 		bntLogar.click();
-		Thread.sleep(3000);
-		WebElement bntCadastrar = driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]"));
+		// driver.findElement(By.id("hrefUserIcon")).click();
+
+		WebElement bntCadastrar = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
 		bntCadastrar.click();
+		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).click();
+
 	}
 
 	@Test
-	public void cadastrar() throws InterruptedException {
-		Thread.sleep(1000);
+	public void cadastrar() {
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		// Preencher os detalhes da conta
 		driver.findElement(By.name("usernameRegisterPage")).sendKeys("abdielordeiro");
@@ -74,17 +80,18 @@ public class testeCadastrarFalha {
 		// Botão de confirmar
 		driver.findElement(By.id("register_btnundefined")).click();
 
-		WebElement teste = driver.findElement(By.xpath("//*[@id=\"registerPage\"]/article/sec-form/div[2]/label[1]"));
-		String nome = teste.getText();
-
-		assertFalse("Usuário duplicado", nome.equals("User name already exists"));
+		WebElement labelMensagem = driver
+				.findElement(By.xpath("/html/body/div[3]/section/article/sec-form/div[2]/label[1]"));
+		String mensagem = labelMensagem.getText();
+		System.out.println("Teste mensagem: " + mensagem);
+		Assert.assertFalse("Usuário duplicado", mensagem.equals("User name already exists"));
 
 	}
 
 	@After
 	public void encerrar() throws Exception {
 		Utils.takeSnapShot("testeComFalha");
-		//Utils.closeBrowser(driver);
+		// Utils.closeBrowser(driver);
 	}
 
 }

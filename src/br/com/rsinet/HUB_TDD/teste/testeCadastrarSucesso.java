@@ -39,7 +39,7 @@ public class testeCadastrarSucesso {
 	}
 
 	@Test
-	public void cadastrar() throws InterruptedException {
+	public void cadastrar() {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// Preencher os detalhes da conta
@@ -84,7 +84,7 @@ public class testeCadastrarSucesso {
 	@After
 	public void encerrar() throws Exception {
 		Utils.takeSnapShot("testeComSucesso");
-		//Utils.closeBrowser(driver);
+		Utils.closeBrowser(driver);
 	}
 
 }
