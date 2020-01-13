@@ -12,7 +12,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.rsi.HUB_TDD.utility.Utils;
+import br.com.rsinet.HUB_TDD.utility.Utils;
+import br.com.rsinet.HUB_TDD.utility.print;
 
 public class testeBuscaFalha {
 
@@ -54,8 +55,8 @@ public class testeBuscaFalha {
 
 	@After
 	public void finalizar() throws Exception {
-		// print.takeSnapShot("testeBuscaClickSucesso");
-		// Utils.closeBrowser(driver);
+		 print.takeSnapShot("testeBuscaClickSucesso");
+		 Utils.closeBrowser(driver);
 	}
 
 }

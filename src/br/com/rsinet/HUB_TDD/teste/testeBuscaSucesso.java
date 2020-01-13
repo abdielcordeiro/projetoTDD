@@ -12,8 +12,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.rsi.HUB_TDD.utility.Utils;
-import br.com.rsi.HUB_TDD.utility.print;
+import br.com.rsinet.HUB_TDD.utility.Utils;
+import br.com.rsinet.HUB_TDD.utility.print;
 
 public class testeBuscaSucesso {
 

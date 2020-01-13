@@ -12,8 +12,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-import br.com.rsi.HUB_TDD.utility.Utils;
-import br.com.rsi.HUB_TDD.utility.print;
+import br.com.rsinet.HUB_TDD.utility.Utils;
+import br.com.rsinet.HUB_TDD.utility.print;
 
 public class testeBuscarLupaFalha {
 

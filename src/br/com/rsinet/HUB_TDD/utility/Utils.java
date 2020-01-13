@@ -1,4 +1,4 @@
-package br.com.rsi.HUB_TDD.utility;
+package br.com.rsinet.HUB_TDD.utility;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

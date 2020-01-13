@@ -15,8 +15,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.rsi.HUB_TDD.utility.Utils;
-import br.com.rsi.HUB_TDD.utility.print;
+import br.com.rsinet.HUB_TDD.utility.Utils;
+import br.com.rsinet.HUB_TDD.utility.print;
 
 public class testeCadastrarFalha {
 
