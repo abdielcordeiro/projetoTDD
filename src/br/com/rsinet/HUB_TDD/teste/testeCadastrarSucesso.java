@@ -7,13 +7,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.rsinet.HUB_TDD.module.modulo_Home;
 import br.com.rsinet.HUB_TDD.utility.Utils;
 import br.com.rsinet.HUB_TDD.utility.print;
 
@@ -27,16 +25,7 @@ public class testeCadastrarSucesso {
 		driver = Utils.openBrowser("Chrome", "http://www.advantageonlineshopping.com/#/");
 		scroll = (JavascriptExecutor) driver;
 
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		WebElement bntLogar = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
-		bntLogar.click();
-
-		WebElement bntCadastrar = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
-		bntCadastrar.click();
-		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).sendKeys(Keys.ENTER);
-		;
-
+		modulo_Home.executa(driver);
 	}
 
 	@Test
@@ -44,8 +33,7 @@ public class testeCadastrarSucesso {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// Preencher os detalhes da conta
-		String nome = "ASDDOrDEirO";
-		driver.findElement(By.name("usernameRegisterPage")).sendKeys(nome);
+		driver.findElement(By.name("usernameRegisterPage")).sendKeys("ASDDOrDEirO");
 
 		driver.findElement(By.name("emailRegisterPage")).sendKeys("teste@rsinet.com.br");
 
