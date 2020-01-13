@@ -1,6 +1,6 @@
 package br.com.rsinet.HUB_TDD.teste;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +15,7 @@ import org.openqa.selenium.WebDriver;
 import br.com.rsi.HUB_TDD.utility.Utils;
 import br.com.rsi.HUB_TDD.utility.print;
 
-public class testeBuscarLupaSucesso {
+public class testeBuscarLupaFalha {
 
 	private WebDriver driver;
 	private JavascriptExecutor scroll;
@@ -33,20 +33,17 @@ public class testeBuscarLupaSucesso {
 
 		driver.findElement(By.id("menuSearch")).click();
 
-		driver.findElement(By.id("autoComplete")).sendKeys("Mice" + Keys.ENTER);
+		driver.findElement(By.id("autoComplete")).sendKeys("Sabonete" + Keys.ENTER);
 
-		driver.findElement(By.id("31")).click();
-
-
-		String nomeProduto = driver.findElement(By.xpath("//*[@id=\"Description\"]/h1")).getText();
-		System.out.println(nomeProduto);
-		assertTrue("Produto encontrado com sucesso", nomeProduto.equals("LOGITECH G502 PROTEUS CORE"));
+		String resposta = driver.findElement(By.xpath("/html/body/div[3]/section/article/div[3]/div/label/span")).getText();
+		System.out.println(resposta);
+		assertFalse("Produto não encontrado", resposta.equals("No results for \"Sabonete\""));
 
 	}
 
 	@After
 	public void finalizar() throws Exception {
-		print.takeSnapShot("testeBuscaLupaSucesso");
-		Utils.closeBrowser(driver);
+		print.takeSnapShot("testeBuscaLupaFalha");
+		// Utils.closeBrowser(driver);
 	}
 }
