@@ -44,6 +44,6 @@ public class testeBuscarLupaFalha {
 	@After
 	public void finalizar() throws Exception {
 		print.takeSnapShot("testeBuscaLupaFalha");
-		// Utils.closeBrowser(driver);
+		Utils.closeBrowser(driver);
 	}
 }

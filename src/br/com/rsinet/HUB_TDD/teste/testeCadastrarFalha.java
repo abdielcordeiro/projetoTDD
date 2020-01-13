@@ -85,7 +85,7 @@ public class testeCadastrarFalha {
 		WebElement labelMensagem = driver
 				.findElement(By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[1]/sec-view[1]/div/label"));
 		String mensagem = labelMensagem.getText();
-		System.out.println("Teste mensagem: " + mensagem);
+		//System.out.println("Teste mensagem: " + mensagem);
 		Assert.assertFalse("Login de acesso invalido, mais caracteres do que o permitido", mensagem.equals("Use maximum 15 character"));
 
 	}

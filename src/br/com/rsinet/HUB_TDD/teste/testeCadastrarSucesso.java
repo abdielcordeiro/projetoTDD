@@ -24,19 +24,18 @@ public class testeCadastrarSucesso {
 
 	@Before
 	public void carregar() throws Exception {
-		driver = Utils.openBrowser("Chrome","http://www.advantageonlineshopping.com/#/");
+		driver = Utils.openBrowser("Chrome", "http://www.advantageonlineshopping.com/#/");
 		scroll = (JavascriptExecutor) driver;
-		//driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		WebElement bntLogar = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
 		bntLogar.click();
-		//driver.findElement(By.id("hrefUserIcon")).click();
 
 		WebElement bntCadastrar = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
 		bntCadastrar.click();
-		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).sendKeys(Keys.ENTER);;
+		driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).sendKeys(Keys.ENTER);
+		;
 
 	}
 
@@ -45,7 +44,8 @@ public class testeCadastrarSucesso {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// Preencher os detalhes da conta
-		driver.findElement(By.name("usernameRegisterPage")).sendKeys("abdielcordeiro");
+		String nome = "ASDDOrDEirO";
+		driver.findElement(By.name("usernameRegisterPage")).sendKeys(nome);
 
 		driver.findElement(By.name("emailRegisterPage")).sendKeys("teste@rsinet.com.br");
 
