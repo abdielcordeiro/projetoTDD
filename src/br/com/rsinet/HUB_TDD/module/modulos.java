@@ -102,9 +102,11 @@ public class modulos {
 
 	public static String executaPesquisaErro(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, BuscarLupa_Page.class);
-
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver, 60);
+
+
+
 		WebElement bntBuscar = wait.until(ExpectedConditions.elementToBeClickable(BuscarLupa_Page.bnt_lupa));
 		bntBuscar.click();
 
@@ -112,6 +114,36 @@ public class modulos {
 		BuscarLupa_Page.input_buscar.sendKeys(produto + Keys.ENTER);
 
 		return BuscarLupa_Page.label_resposta.getText();
+	}
+
+	public static String executaPesquisaClick(WebDriver driver) throws Exception {
+		PageFactory.initElements(driver, BuscarLupa_Page.class);
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		BuscarLupa_Page.bnt_categoria.click();
+		BuscarLupa_Page.bnt_clicarProduto.click();
+
+		return BuscarLupa_Page.label_nomeProduto.getText();
+	}
+
+	public static int executaPesquisaClickErro(WebDriver driver) throws Exception {
+		PageFactory.initElements(driver, BuscarLupa_Page.class);
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		BuscarLupa_Page.bnt_categoria.click();
+		BuscarLupa_Page.bnt_clicarProduto.click();
+
+		for (int i = 0; i < 19; i++) {
+			BuscarLupa_Page.bnt_addProduto.click();
+		}
+
+		BuscarLupa_Page.bnt_salvarCarrinho.click();
+		BuscarLupa_Page.bnt_entrarCarrinho.click();
+
+		int testaQuantidade = Integer.parseInt(BuscarLupa_Page.label_quantidade.getText());
+
+		return testaQuantidade;
 	}
 
 }

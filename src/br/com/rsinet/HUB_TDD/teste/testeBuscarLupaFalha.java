@@ -29,7 +29,7 @@ public class testeBuscarLupaFalha {
 		String resposta = modulos.executaPesquisaErro(driver);
 
 		String produto = ExcelUtils.getCellData(1, Constant.Produto);
-		assertFalse("Produto não encontrado", resposta.equals("No results for " + "\"" + produto + "\""));
+		assertFalse("Produto: " + produto + "  não encontrado", resposta.equals("No results for " + "\"" + produto + "\""));
 
 	}
 
