@@ -1,11 +1,10 @@
 package br.com.rsinet.HUB_TDD.teste;
 
-import static org.junit.Assert.assertTrue;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.module.modulos;
 import br.com.rsinet.HUB_TDD.utility.Constant;
@@ -17,7 +16,7 @@ public class testeBuscarLupaSucesso {
 
 	private WebDriver driver;
 
-	@Before
+	@BeforeMethod
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome", "http://www.advantageonlineshopping.com/#/");
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Pesquisa");
@@ -28,11 +27,11 @@ public class testeBuscarLupaSucesso {
 
 		String resposta = modulos.executaPesquisa(driver);
 
-		assertTrue("Produto encontrado com sucesso", resposta.equals("LOGITECH G502 PROTEUS CORE"));
+		Assert.assertTrue(resposta.equals("LOGITECH G502 PROTEUS CORE"),"Produto encontrado com sucesso");
 
 	}
 
-	@After
+	@AfterMethod
 	public void finalizar() throws Exception {
 		print.takeSnapShot("testeBuscaLupaSucesso");
 		//Utils.closeBrowser(driver);

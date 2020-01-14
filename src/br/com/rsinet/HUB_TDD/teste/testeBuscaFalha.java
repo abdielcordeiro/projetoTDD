@@ -1,11 +1,10 @@
 package br.com.rsinet.HUB_TDD.teste;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.module.modulos;
 import br.com.rsinet.HUB_TDD.utility.Constant;
@@ -16,7 +15,7 @@ public class testeBuscaFalha {
 
 	private WebDriver driver;
 
-	@Before
+	@BeforeMethod
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome", Constant.URL);
 
@@ -26,10 +25,10 @@ public class testeBuscaFalha {
 	public void executar() throws Exception {
 
 		int testaQuantidade = modulos.executaPesquisaClickErro(driver);
-		assertEquals("Quantidade Cadastrada diferente da pedida", testaQuantidade, 20);
+		Assert.assertEquals(testaQuantidade, 20, "Quantidade Cadastrada diferente da pedida");
 	}
 
-	@After
+	@AfterMethod
 	public void finalizar() throws Exception {
 		print.takeSnapShot("testeBuscaClickFalha");
 		Utils.closeBrowser(driver);

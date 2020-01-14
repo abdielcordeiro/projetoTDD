@@ -1,10 +1,10 @@
 package br.com.rsinet.HUB_TDD.teste;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.module.modulos;
 import br.com.rsinet.HUB_TDD.utility.Constant;
@@ -16,7 +16,7 @@ public class testeCadastrarFalha {
 
 	private WebDriver driver;
 
-	@Before
+	@BeforeMethod
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome", Constant.URL);
 
@@ -30,11 +30,11 @@ public class testeCadastrarFalha {
 		String resposta = modulos.executaCadastro(driver);
 
 		System.out.println("Teste mensagem: " + resposta);
-		Assert.assertFalse("Login de acesso invalido, mais caracteres do que o permitido", resposta.equals("Use maximum 15 character"));
+		Assert.assertFalse(resposta.equals("Use maximum 15 character"),"Login de acesso invalido, mais caracteres do que o permitido");
 
 	}
 
-	@After
+	@AfterMethod
 	public void encerrar() throws Exception {
 		print.takeSnapShot("testeCadastroFalha");
 		Utils.closeBrowser(driver);

@@ -1,11 +1,10 @@
 package br.com.rsinet.HUB_TDD.teste;
 
-import static org.junit.Assert.assertFalse;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.module.modulos;
 import br.com.rsinet.HUB_TDD.utility.Constant;
@@ -17,7 +16,7 @@ public class testeBuscarLupaFalha {
 
 	private WebDriver driver;
 
-	@Before
+	@BeforeMethod
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome", "http://www.advantageonlineshopping.com/#/");
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Pesquisa");
@@ -29,12 +28,12 @@ public class testeBuscarLupaFalha {
 		String resposta = modulos.executaPesquisaErro(driver);
 
 		String produto = ExcelUtils.getCellData(1, Constant.Produto);
-		assertFalse("Produto: " + produto + "  não encontrado", resposta.equals("No results for " + "\"" + produto + "\""));
+		Assert.assertFalse(resposta.equals("No results for " + "\"" + produto + "\""), "Produto: " + produto + "  não encontrado");
 
 	}
 
 
-	@After
+	@AfterMethod
 	public void finalizar() throws Exception {
 		print.takeSnapShot("testeBuscaLupaFalha");
 		Utils.closeBrowser(driver);
