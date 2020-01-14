@@ -20,15 +20,5 @@ public class Constant {
 	public static final int State = 8;
 	public static final int CEP = 9;
 
-	// public static final String Username = "testuser_1";
-	// public static final String Password = "Test@123";
-
-
-
-
-
-
-
-
 
 }

@@ -47,4 +47,7 @@ public class Cadastrar_Page {
 
 	@FindBy(how = How.ID, using = "register_btnundefined")
 	public static WebElement bnt_registrar;
+
+	@FindBy(how = How.XPATH, using = "/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[1]/sec-view[1]/div/label")
+	public static WebElement resposta;
 }

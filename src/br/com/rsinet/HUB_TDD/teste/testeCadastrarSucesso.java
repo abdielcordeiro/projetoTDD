@@ -18,7 +18,7 @@ public class testeCadastrarSucesso {
 
 	@Before
 	public void carregar() throws Exception {
-		driver = Utils.openBrowser("Firefox", Constant.URL);
+		driver = Utils.openBrowser("Chrome", Constant.URL);
 
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
 		modulo_Home.executa(driver);
@@ -26,9 +26,7 @@ public class testeCadastrarSucesso {
 
 	@Test
 	public void cadastrar() throws Exception {
-
 		modulo_Cadastrar.executa(driver);
-
 	}
 
 	@After

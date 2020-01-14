@@ -14,7 +14,7 @@ import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 
 public class modulo_Cadastrar {
 
-	public static void executa(WebDriver driver) throws Exception {
+	public static String executa(WebDriver driver) throws Exception {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		PageFactory.initElements(driver, Cadastrar_Page.class);
@@ -42,7 +42,6 @@ public class modulo_Cadastrar {
 		WebElement pais = driver.findElement(By.name("countryListboxRegisterPage"));
 		pais.click();
 		Select comboBoxPais = new Select(pais);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		comboBoxPais.selectByVisibleText("Brazil");
 
 		String cep = ExcelUtils.getCellData(1, Constant.CEP);
@@ -59,5 +58,9 @@ public class modulo_Cadastrar {
 
 		Cadastrar_Page.bnt_concordar.click();
 		Cadastrar_Page.bnt_registrar.click();
+
+		return Cadastrar_Page.resposta.getText();
+
+
 	}
 }
