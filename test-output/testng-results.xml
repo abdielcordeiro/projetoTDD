@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="16151" started-at="2020-01-14T15:16:15 BRT" finished-at="2020-01-14T15:16:31 BRT">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="16151" started-at="2020-01-14T15:16:15 BRT" finished-at="2020-01-14T15:16:31 BRT">
+      <class name="br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso">
+        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="carregar" is-config="true" duration-ms="12672" started-at="2020-01-14T15:16:15 BRT" finished-at="2020-01-14T15:16:28 BRT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- carregar -->
+        <test-method status="PASS" signature="cadastrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="cadastrar" duration-ms="3003" started-at="2020-01-14T15:16:28 BRT" finished-at="2020-01-14T15:16:31 BRT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cadastrar -->
+        <test-method status="PASS" signature="encerrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="encerrar" is-config="true" duration-ms="440" started-at="2020-01-14T15:16:31 BRT" finished-at="2020-01-14T15:16:31 BRT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- encerrar -->
+      </class> <!-- br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
