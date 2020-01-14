@@ -15,7 +15,7 @@ public class BuscarLupa_Page{
 	@FindBy(how = How.ID, using = "31")
 	public static WebElement bnt_clicarProduto;
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"Description\"]/h1")
+	@FindBy(how = How.XPATH, using = "//*[@id=\"searchPage\"]/div[3]/div/label/span")
 	public static WebElement label_resposta;
 
 	@FindBy(how = How.XPATH, using = "//*[@id=\"search\"]/div/div/img")

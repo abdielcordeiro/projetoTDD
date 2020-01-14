@@ -100,4 +100,18 @@ public class modulos {
 		return BuscarLupa_Page.label_resposta.getText();
 	}
 
+	public static String executaPesquisaErro(WebDriver driver) throws Exception {
+		PageFactory.initElements(driver, BuscarLupa_Page.class);
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebElement bntBuscar = wait.until(ExpectedConditions.elementToBeClickable(BuscarLupa_Page.bnt_lupa));
+		bntBuscar.click();
+
+		String produto = ExcelUtils.getCellData(1, Constant.Produto);
+		BuscarLupa_Page.input_buscar.sendKeys(produto + Keys.ENTER);
+
+		return BuscarLupa_Page.label_resposta.getText();
+	}
+
 }
