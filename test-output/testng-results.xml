@@ -1,21 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16151" started-at="2020-01-14T15:16:15 BRT" finished-at="2020-01-14T15:16:31 BRT">
+  <suite name="Default suite" duration-ms="17041" started-at="2020-01-14T16:00:44 BRT" finished-at="2020-01-14T16:01:01 BRT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16151" started-at="2020-01-14T15:16:15 BRT" finished-at="2020-01-14T15:16:31 BRT">
+    <test name="Default test" duration-ms="17041" started-at="2020-01-14T16:00:44 BRT" finished-at="2020-01-14T16:01:01 BRT">
       <class name="br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso">
-        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="carregar" is-config="true" duration-ms="12672" started-at="2020-01-14T15:16:15 BRT" finished-at="2020-01-14T15:16:28 BRT">
+        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="carregar" is-config="true" duration-ms="12836" started-at="2020-01-14T16:00:44 BRT" finished-at="2020-01-14T16:00:57 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carregar -->
-        <test-method status="PASS" signature="cadastrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="cadastrar" duration-ms="3003" started-at="2020-01-14T15:16:28 BRT" finished-at="2020-01-14T15:16:31 BRT">
+        <test-method status="FAIL" signature="cadastrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="cadastrar" duration-ms="3818" started-at="2020-01-14T16:00:57 BRT" finished-at="2020-01-14T16:01:00 BRT">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Usuário cadastrado com sucesso!! did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Usuário cadastrado com sucesso!! did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso.cadastrar(testeCadastrarSucesso.java:30)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cadastrar -->
-        <test-method status="PASS" signature="encerrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="encerrar" is-config="true" duration-ms="440" started-at="2020-01-14T15:16:31 BRT" finished-at="2020-01-14T15:16:31 BRT">
+        <test-method status="PASS" signature="encerrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="encerrar" is-config="true" duration-ms="357" started-at="2020-01-14T16:01:00 BRT" finished-at="2020-01-14T16:01:01 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerrar -->

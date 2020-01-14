@@ -1,6 +1,7 @@
 package br.com.rsinet.HUB_TDD.teste;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -24,7 +25,9 @@ public class testeCadastrarSucesso {
 
 	@Test
 	public void cadastrar() throws Exception {
-		modulos.executaCadastro(driver);
+		String resposta = modulos.executaCadastro(driver);
+		System.out.println(resposta);
+		Assert.assertTrue(resposta.equals("http://www.advantageonlineshopping.com/#/"), "Usuário cadastrado com sucesso!!");
 	}
 
 	@AfterMethod

@@ -27,7 +27,7 @@ public class testeCadastrarFalha {
 	@Test
 	public void cadastrar() throws Exception {
 
-		String resposta = modulos.executaCadastro(driver);
+		String resposta = modulos.executaCadastroErro(driver);
 
 		System.out.println("Teste mensagem: " + resposta);
 		Assert.assertFalse(resposta.equals("Use maximum 15 character"),"Login de acesso invalido, mais caracteres do que o permitido");
