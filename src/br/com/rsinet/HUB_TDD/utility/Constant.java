@@ -20,5 +20,8 @@ public class Constant {
 	public static final int State = 8;
 	public static final int CEP = 9;
 
+	//Dados da pesquisa por Lupa
+	public static final int Produto = 0;
+
 
 }

@@ -5,8 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import br.com.rsinet.HUB_TDD.module.modulo_Cadastrar;
-import br.com.rsinet.HUB_TDD.module.modulo_Home;
+import br.com.rsinet.HUB_TDD.module.modulos;
 import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.Utils;
@@ -19,14 +18,13 @@ public class testeCadastrarSucesso {
 	@Before
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome", Constant.URL);
-
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
-		modulo_Home.executa(driver);
+		modulos.executaHomeCadastro(driver);
 	}
 
 	@Test
 	public void cadastrar() throws Exception {
-		modulo_Cadastrar.executa(driver);
+		modulos.executaCadastro(driver);
 	}
 
 	@After
