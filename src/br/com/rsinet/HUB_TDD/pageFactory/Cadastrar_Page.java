@@ -45,6 +45,6 @@ public class Cadastrar_Page {
 	@FindBy(how = How.NAME, using = "i_agree")
 	public static WebElement bnt_concordar;
 
-	@FindBy(how = How.NAME, using = "register_btnundefined")
+	@FindBy(how = How.ID, using = "register_btnundefined")
 	public static WebElement bnt_registrar;
 }
