@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.module.modulos;
 import br.com.rsinet.HUB_TDD.utility.Constant;
+import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.Utils;
 import br.com.rsinet.HUB_TDD.utility.print;
 
@@ -18,7 +19,7 @@ public class testeBuscaSucesso {
 	@BeforeMethod
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome", Constant.URL);
-		//ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
+		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
 	}
 
 	@Test

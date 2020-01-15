@@ -14,6 +14,7 @@ import br.com.rsinet.HUB_TDD.utility.print;
 
 public class testeBuscarLupaSucesso {
 
+	//Alerar a busca na massa de dados para MICE
 	private WebDriver driver;
 
 	@BeforeMethod

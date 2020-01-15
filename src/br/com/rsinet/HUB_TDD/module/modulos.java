@@ -135,7 +135,7 @@ public class modulos {
 	public static String executaPesquisa(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, BuscarLupa_Page.class);
 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		WebElement bntBuscar = wait.until(ExpectedConditions.elementToBeClickable(BuscarLupa_Page.bnt_lupa));
 		bntBuscar.click();
