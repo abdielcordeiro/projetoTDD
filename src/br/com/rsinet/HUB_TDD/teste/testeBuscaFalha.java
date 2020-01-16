@@ -6,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import br.com.rsinet.HUB_TDD.module.modulos;
+import br.com.rsinet.HUB_TDD.pageFactory.BuscarLupa_Page;
 import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.Utils;
 import br.com.rsinet.HUB_TDD.utility.print;
@@ -24,7 +24,7 @@ public class testeBuscaFalha {
 	@Test
 	public void executar() throws Exception {
 
-		int testaQuantidade = modulos.executaPesquisaClickErro(driver);
+		int testaQuantidade = BuscarLupa_Page.executaPesquisaClickErro(driver);
 		Assert.assertEquals(testaQuantidade, 20, "Quantidade Cadastrada diferente da pedida");
 	}
 

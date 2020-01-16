@@ -6,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import br.com.rsinet.HUB_TDD.module.modulos;
+import br.com.rsinet.HUB_TDD.pageFactory.BuscarLupa_Page;
 import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.Utils;
@@ -26,7 +26,7 @@ public class testeBuscarLupaSucesso {
 	@Test
 	public void buscar() throws Exception {
 
-		String resposta = modulos.executaPesquisa(driver);
+		String resposta = BuscarLupa_Page.executaPesquisa(driver);
 
 		Assert.assertTrue(resposta.equals("LOGITECH G502 PROTEUS CORE"),"Produto encontrado com sucesso");
 

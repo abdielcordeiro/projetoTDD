@@ -6,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import br.com.rsinet.HUB_TDD.module.modulos;
+import br.com.rsinet.HUB_TDD.pageFactory.BuscarLupa_Page;
 import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.Utils;
@@ -25,10 +25,10 @@ public class testeBuscarLupaFalha {
 	@Test
 	public void buscar() throws Exception {
 
-		String resposta = modulos.executaPesquisaErro(driver);
+		String resposta = BuscarLupa_Page.executaPesquisaErro(driver);
 
 		String produto = ExcelUtils.getCellData(1, Constant.Produto);
-		Assert.assertFalse(resposta.equals("No results for " + "\"" + produto + "\""), "Produto: " + produto + "  não encontrado");
+		Assert.assertFalse(resposta.equals("No results for " + "\"" + produto + "\""), "Produto: " + produto + "  nï¿½o encontrado");
 
 	}
 

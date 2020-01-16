@@ -6,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import br.com.rsinet.HUB_TDD.module.modulos;
+import br.com.rsinet.HUB_TDD.pageFactory.BuscarLupa_Page;
 import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.Utils;
@@ -25,7 +25,7 @@ public class testeBuscaSucesso {
 	@Test
 	public void executar() throws Exception {
 
-		String nomeProduto = modulos.executaPesquisaClick(driver);
+		String nomeProduto = BuscarLupa_Page.executaPesquisaClick(driver);
 		Assert.assertTrue(nomeProduto.equals("HP ROAR MINI WIRELESS SPEAKER"),"Produto encontrado com sucesso");
 	}
 

@@ -6,7 +6,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import br.com.rsinet.HUB_TDD.module.modulos;
+import br.com.rsinet.HUB_TDD.pageFactory.Cadastrar_Page;
+import br.com.rsinet.HUB_TDD.pageFactory.Home_Page;
 import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.Utils;
@@ -20,14 +21,14 @@ public class testeCadastrarSucesso {
 	public void carregar() throws Exception {
 		driver = Utils.openBrowser("Chrome", Constant.URL);
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
-		modulos.executaHomeCadastro(driver);
+		Home_Page.executaHomeCadastro(driver);
 	}
 
 	@Test
 	public void cadastrar() throws Exception {
-		String resposta = modulos.executaCadastro(driver);
+		String resposta = Cadastrar_Page.executaCadastro(driver);
 		System.out.println(resposta);
-		Assert.assertTrue(resposta.equals("http://www.advantageonlineshopping.com/#/"), "Usu·rio cadastrado com sucesso!!");
+		Assert.assertTrue(resposta.equals("http://www.advantageonlineshopping.com/#/"), "Usu√°rio cadastrado com sucesso!!");
 	}
 
 	@AfterMethod
