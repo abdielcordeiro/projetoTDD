@@ -8,8 +8,9 @@ import org.testng.annotations.Test;
 
 import br.com.rsinet.HUB_TDD.pageFactory.BuscarLupa_Page;
 import br.com.rsinet.HUB_TDD.utility.Constant;
+import br.com.rsinet.HUB_TDD.utility.DriverFactory;
+import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
-import br.com.rsinet.HUB_TDD.utility.Utils;
 import br.com.rsinet.HUB_TDD.utility.print;
 
 public class testeBuscaSucesso {
@@ -18,8 +19,8 @@ public class testeBuscaSucesso {
 
 	@BeforeMethod
 	public void carregar() throws Exception {
-		driver = Utils.openBrowser("Chrome", Constant.URL);
-		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
+		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
+		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Pesquisa");
 	}
 
 	@Test
@@ -32,7 +33,7 @@ public class testeBuscaSucesso {
 	@AfterMethod
 	public void finalizar() throws Exception {
 		print.takeSnapShot("testeBuscaClickSucesso");
-		Utils.closeBrowser(driver);
+		DriverFactory.closeBrowser(driver);
 	}
 
 }

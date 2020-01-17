@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18267" started-at="2020-01-15T14:13:09 BRT" finished-at="2020-01-15T14:13:28 BRT">
+  <suite name="Default suite" duration-ms="20229" started-at="2020-01-17T10:49:57 BRT" finished-at="2020-01-17T10:50:17 BRT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18267" started-at="2020-01-15T14:13:09 BRT" finished-at="2020-01-15T14:13:28 BRT">
-      <class name="br.com.rsinet.HUB_TDD.teste.testeCadastrarFalha">
-        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarFalha@4b553d26]" name="carregar" is-config="true" duration-ms="13821" started-at="2020-01-15T14:13:09 BRT" finished-at="2020-01-15T14:13:23 BRT">
+    <test name="Default test" duration-ms="20229" started-at="2020-01-17T10:49:57 BRT" finished-at="2020-01-17T10:50:17 BRT">
+      <class name="br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso">
+        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="carregar" is-config="true" duration-ms="13215" started-at="2020-01-17T10:49:57 BRT" finished-at="2020-01-17T10:50:10 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carregar -->
-        <test-method status="PASS" signature="cadastrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarFalha@4b553d26]" name="cadastrar" duration-ms="3831" started-at="2020-01-15T14:13:23 BRT" finished-at="2020-01-15T14:13:27 BRT">
+        <test-method status="PASS" signature="cadastrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="cadastrar" duration-ms="5478" started-at="2020-01-17T10:50:10 BRT" finished-at="2020-01-17T10:50:15 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cadastrar -->
-        <test-method status="PASS" signature="encerrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarFalha@4b553d26]" name="encerrar" is-config="true" duration-ms="584" started-at="2020-01-15T14:13:27 BRT" finished-at="2020-01-15T14:13:28 BRT">
+        <test-method status="PASS" signature="encerrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso@4b553d26]" name="encerrar" is-config="true" duration-ms="1497" started-at="2020-01-17T10:50:15 BRT" finished-at="2020-01-17T10:50:17 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerrar -->
-      </class> <!-- br.com.rsinet.HUB_TDD.teste.testeCadastrarFalha -->
+      </class> <!-- br.com.rsinet.HUB_TDD.teste.testeCadastrarSucesso -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

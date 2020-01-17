@@ -2,6 +2,7 @@ package br.com.rsinet.HUB_TDD.pageFactory;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,16 +15,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 
-public class BuscarLupa_Page{
+public class BuscarLupa_Page {
 
 	@FindBy(how = How.ID, using = "menuSearch")
 	private static WebElement bnt_lupa;
 
 	@FindBy(how = How.ID, using = "autoComplete")
 	private static WebElement input_buscar;
-
-	@FindBy(how = How.ID, using = "24")
-	private static WebElement bnt_clicarProduto;
+//
+//	@FindBy(how = How.ID, using = "24")
+//	private static WebElement bnt_clicarProduto;
+//
 
 	@FindBy(how = How.XPATH, using = "//*[@id=\"searchPage\"]/div[3]/div/label/span")
 	private static WebElement label_resposta;
@@ -52,6 +54,11 @@ public class BuscarLupa_Page{
 	@FindBy(how = How.XPATH, using = "//*[@id=\"shoppingCart\"]/table/tbody/tr/td[4]/label[2]")
 	private static WebElement label_quantidade;
 
+	public static WebElement pesquisaProdutoTela(WebDriver driver, String produto) {
+		WebElement element = driver.findElement(By.xpath("//*[. ='"+ produto +"']"));
+		return element;
+	}
+
 	public static String executaPesquisa(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, BuscarLupa_Page.class);
 
@@ -66,7 +73,8 @@ public class BuscarLupa_Page{
 		Thread.sleep(2000);
 		bnt_X.click();
 
-		bnt_clicarProduto.click();
+		String nomeProduto = ExcelUtils.getCellData(1, Constant.nomeProduto);
+		pesquisaProdutoTela(driver, nomeProduto).click();
 
 		return label_resposta.getText();
 	}
@@ -91,7 +99,9 @@ public class BuscarLupa_Page{
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		bnt_categoria.click();
-		bnt_clicarProduto.click();
+
+		String nomeProduto = ExcelUtils.getCellData(1, Constant.nomeProduto);
+		pesquisaProdutoTela(driver, nomeProduto).click();
 
 		return label_nomeProduto.getText();
 	}
@@ -101,7 +111,9 @@ public class BuscarLupa_Page{
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		bnt_categoria.click();
-		bnt_clicarProduto.click();
+
+		String nomeProduto = ExcelUtils.getCellData(1, Constant.nomeProduto);
+		pesquisaProdutoTela(driver, nomeProduto).click();
 
 		for (int i = 0; i < 19; i++) {
 			bnt_addProduto.click();

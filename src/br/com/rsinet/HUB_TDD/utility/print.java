@@ -8,7 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-public class print extends Utils {
+public class print extends DriverFactory {
 
 	public static String pegaHora() {
 		return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());

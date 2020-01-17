@@ -14,12 +14,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Home_Page {
 
 	@FindBy(how = How.ID, using = "menuUser")
-	private static WebElement bnt_Login;
+	private WebElement bnt_Login;
 
 	@FindBy(how = How.XPATH, using = "/html/body/login-modal/div/div/div[3]/a[2]")
-	private static WebElement bnt_Cadastrar;
+	private WebElement bnt_Cadastrar;
 
-	public static void executaHomeCadastro(WebDriver driver) {
+	public void executaHomeCadastro(WebDriver driver) {
 		PageFactory.initElements(driver, Home_Page.class);
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

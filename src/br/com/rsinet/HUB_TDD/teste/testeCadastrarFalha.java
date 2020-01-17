@@ -9,8 +9,9 @@ import org.testng.annotations.Test;
 import br.com.rsinet.HUB_TDD.pageFactory.Cadastrar_Page;
 import br.com.rsinet.HUB_TDD.pageFactory.Home_Page;
 import br.com.rsinet.HUB_TDD.utility.Constant;
+import br.com.rsinet.HUB_TDD.utility.DriverFactory;
+import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
-import br.com.rsinet.HUB_TDD.utility.Utils;
 import br.com.rsinet.HUB_TDD.utility.print;
 
 public class testeCadastrarFalha {
@@ -19,7 +20,7 @@ public class testeCadastrarFalha {
 
 	@BeforeMethod
 	public void carregar() throws Exception {
-		driver = Utils.openBrowser("Chrome", Constant.URL);
+		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
 
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
 		Home_Page.executaHomeCadastro(driver);
@@ -38,7 +39,7 @@ public class testeCadastrarFalha {
 	@AfterMethod
 	public void encerrar() throws Exception {
 		print.takeSnapShot("testeCadastroFalha");
-		Utils.closeBrowser(driver);
+		DriverFactory.closeBrowser(driver);
 	}
 
 }
