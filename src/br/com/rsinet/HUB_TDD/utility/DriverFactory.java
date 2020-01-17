@@ -9,13 +9,14 @@ public class DriverFactory {
 	public static WebDriver driver;
 
 	public enum DriverType {
-		CHROME, FIREFOX, IE, SAFARI;
+		CHROME, FIREFOX, IE;
 	}
 
 	public static WebDriver openBrowser(DriverType tipo, String url) throws Exception {
 
 		switch (tipo) {
 		case IE:
+			System.setProperty("webdriver.ie.driver", "C://Users//abdiel.cordeiro//Documents//Projetos//eclipse-workspace//projetoTDD//target//driver//IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			driver.get(url);
@@ -40,6 +41,7 @@ public class DriverFactory {
 
 		if (driver != null) {
 			driver.close();
+			driver.quit();
 			driver = null;
 		}
 	}

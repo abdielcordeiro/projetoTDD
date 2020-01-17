@@ -8,7 +8,7 @@ public class Constant {
 
 	public static final String File_TestData = "BancoDados.xlsx";
 
-	//Cadastrar novo Usu�rio
+	//Cadastrar novo Usuário
 	public static final int userName = 0;
 	public static final int userPass = 1;
 	public static final int email = 2;
@@ -21,9 +21,17 @@ public class Constant {
 	public static final int CEP = 9;
 	public static final int Pais = 10;
 
-	//Dados da pesquisa por Lupa
+	/*
+	 * Dados da pesquisa por Lupa Sucesso
+	 */
 	public static final int Produto = 0;
 	public static final int nomeProduto = 1;
+
+
+	/*
+	 * Dados da pesquisa por Lupa Falha
+	 */
+	public static final int nomeProdutoFalha = 1;
 
 
 }

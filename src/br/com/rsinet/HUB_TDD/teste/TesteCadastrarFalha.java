@@ -2,12 +2,9 @@ package br.com.rsinet.HUB_TDD.teste;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,12 +18,11 @@ import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.print;
 
-public class testeCadastrarSucesso {
+public class TesteCadastrarFalha {
 
 	private WebDriver driver;
-	//private WebDriverWait wait;
-	private Cadastrar_Page cadastrar;
 	private Home_Page home;
+	private Cadastrar_Page cadastrar;
 
 	@BeforeMethod
 	public void carregar() throws Exception {
@@ -71,22 +67,18 @@ public class testeCadastrarSucesso {
 
 		cadastrar.clicaBtnRegistrar();
 
-		WebDriverWait wait = new WebDriverWait(driver, 20);
-		wait.until(ExpectedConditions.urlToBe("http://www.advantageonlineshopping.com/#/"));
+		String resposta = cadastrar.respostaCadastro();
+		System.out.println("Teste mensagem: " + resposta);
+		Assert.assertTrue(resposta.equals("Use maximum 15 character"),
+				"Login de acesso invalido, mais caracteres do que o permitido");
 
-		String resposta = driver.getCurrentUrl();
-
-		System.out.println(resposta);
-		Assert.assertTrue(resposta.equals("http://www.advantageonlineshopping.com/#/"),
-				"Usuário cadastrado com sucesso!!");
 	}
 
 	@AfterMethod
 	public void encerrar() throws Exception {
-		WebElement element = driver.findElement(By.xpath("//*[@id=\"speakersImg\"]"));
-		WebDriverWait wait1 = new WebDriverWait(driver, 200);
-		wait1.until(ExpectedConditions.visibilityOf(element));
-		print.takeSnapShot("testeComSucesso");
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("scrollBy(0, -500)", "");
+		print.takeSnapShot("testeCadastroFalha");
 		DriverFactory.closeBrowser(driver);
 	}
 
