@@ -131,4 +131,7 @@ public class Cadastrar_Page {
 		bnt_registrar.click();
 	}
 
+	public String respostaCadastro() {
+		return resposta.getText();
+	}
 }

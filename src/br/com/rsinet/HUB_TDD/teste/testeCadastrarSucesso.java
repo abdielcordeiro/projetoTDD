@@ -2,8 +2,12 @@ package br.com.rsinet.HUB_TDD.teste;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,6 +24,7 @@ import br.com.rsinet.HUB_TDD.utility.print;
 public class testeCadastrarSucesso {
 
 	private WebDriver driver;
+	//private WebDriverWait wait;
 	private Cadastrar_Page cadastrar;
 	private Home_Page home;
 
@@ -66,7 +71,9 @@ public class testeCadastrarSucesso {
 
 		cadastrar.clicaBtnRegistrar();
 
-		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.urlToBe("http://www.advantageonlineshopping.com/#/"));
+
 		String resposta = driver.getCurrentUrl();
 
 		System.out.println(resposta);
@@ -76,6 +83,9 @@ public class testeCadastrarSucesso {
 
 	@AfterMethod
 	public void encerrar() throws Exception {
+		WebElement element = driver.findElement(By.xpath("//*[@id=\"speakersImg\"]"));
+		WebDriverWait wait1 = new WebDriverWait(driver, 200);
+		wait1.until(ExpectedConditions.visibilityOf(element));
 		print.takeSnapShot("testeComSucesso");
 		DriverFactory.closeBrowser(driver);
 	}
