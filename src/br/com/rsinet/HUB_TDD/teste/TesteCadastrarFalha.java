@@ -6,10 +6,15 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
+import br.com.rsinet.HUB_TDD.extendReport.ExtendReport;
 import br.com.rsinet.HUB_TDD.pageFactory.Cadastrar_Page;
 import br.com.rsinet.HUB_TDD.pageFactory.Home_Page;
 import br.com.rsinet.HUB_TDD.utility.Constant;
@@ -23,6 +28,8 @@ public class TesteCadastrarFalha {
 	private WebDriver driver;
 	private Home_Page home;
 	private Cadastrar_Page cadastrar;
+	private ExtentReports extent = new ExtentReports();
+	private ExtentTest test;
 
 	@BeforeMethod
 	public void carregar() throws Exception {
@@ -33,11 +40,12 @@ public class TesteCadastrarFalha {
 		home.executaHomeCadastro(driver);
 
 		cadastrar = PageFactory.initElements(driver, Cadastrar_Page.class);
-
+		extent = ExtendReport.setExtent("TesteCadastrarFalha");
 	}
 
 	@Test
 	public void cadastrar() throws Exception {
+		test = extent.createTest("CadastroFalha");
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		String userName = ExcelUtils.getCellData(1, Constant.userName);
@@ -75,7 +83,9 @@ public class TesteCadastrarFalha {
 	}
 
 	@AfterMethod
-	public void encerrar() throws Exception {
+	public void encerrar(ITestResult result) throws Exception {
+		ExtendReport.tearDown(result, test);
+		ExtendReport.endReport(extent);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("scrollBy(0, -500)", "");
 		print.takeSnapShot("testeCadastroFalha");
