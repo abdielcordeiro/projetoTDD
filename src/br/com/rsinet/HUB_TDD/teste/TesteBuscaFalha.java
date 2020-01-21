@@ -39,8 +39,6 @@ public class TesteBuscaFalha {
 		String nomeProduto = ExcelUtils.getCellData(1, Constant.nomeProduto);
 		buscarLupa.pesquisaProdutoTela(driver, nomeProduto);
 
-		buscarLupa.bntLupa();
-
 		for (int i = 0; i < 19; i++) {
 			buscarLupa.bntAddProduto();
 		}

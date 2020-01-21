@@ -30,7 +30,7 @@ public class TesteBuscaSucesso {
 
 	@Test
 	public void executar() throws Exception {
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		String produto = ExcelUtils.getCellData(1, Constant.Produto);
 		buscarLupa.preencherPorduto(produto);

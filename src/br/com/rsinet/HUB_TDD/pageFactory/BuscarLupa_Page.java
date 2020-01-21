@@ -46,7 +46,7 @@ public class BuscarLupa_Page {
 
 	public void pesquisaProdutoTela(WebDriver driver, String produto) {
 		WebElement element = driver.findElement(By.xpath("//*[. ='" + produto + "']"));
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		WebElement bntProduto = wait.until(ExpectedConditions.elementToBeClickable(element));
 		bntProduto.click();
 	}

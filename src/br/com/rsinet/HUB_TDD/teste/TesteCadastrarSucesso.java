@@ -29,7 +29,7 @@ public class TesteCadastrarSucesso {
 
 	@BeforeMethod
 	public void carregar() throws Exception {
-		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
+		driver = DriverFactory.openBrowser(DriverType.FIREFOX, Constant.URL);
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
 
 		home = PageFactory.initElements(driver, Home_Page.class);
