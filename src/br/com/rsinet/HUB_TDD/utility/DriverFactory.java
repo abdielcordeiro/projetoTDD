@@ -16,22 +16,22 @@ public class DriverFactory {
 
 		switch (tipo) {
 		case IE:
-			System.setProperty("webdriver.ie.driver",
-					"C://Users//abdiel.cordeiro//Documents//Projetos//eclipse-workspace//projetoTDD//drivers//IEDriverServer.exe");
+			String service = "./drivers/IEDriverServer.exe";
+			System.setProperty("webdriver.ie.driver", service);
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			driver.get(url);
 			break;
 		case FIREFOX:
 			System.setProperty("webdriver.gecko.driver",
-					"C://Users//abdiel.cordeiro//Documents//Projetos//eclipse-workspace//projetoTDD//drivers//geckodriver.exe");
+					"./drivers/geckodriver.exe");
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			driver.get(url);
 			break;
 		default:
 			System.setProperty("webdriver.chromedriver.driver",
-					"C://Users//abdiel.cordeiro//Documents//Projetos//eclipse-workspace//projetoTDD//drivers//chromedriver.exe");
+					"./drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.get(url);
