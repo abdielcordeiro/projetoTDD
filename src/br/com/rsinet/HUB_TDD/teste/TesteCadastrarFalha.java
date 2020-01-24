@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -22,7 +23,6 @@ import br.com.rsinet.HUB_TDD.utility.DriverFactory;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.MassaDados;
-import br.com.rsinet.HUB_TDD.utility.print;
 
 public class TesteCadastrarFalha {
 
@@ -32,6 +32,11 @@ public class TesteCadastrarFalha {
 	private ExtentReports extent = new ExtentReports();
 	private ExtentTest test;
 	private MassaDados dados;
+
+	@BeforeTest
+	public void a() {
+		extent = ExtendReport.setExtent();
+	}
 
 	@BeforeMethod
 	public void carregar() throws Exception {
@@ -43,17 +48,17 @@ public class TesteCadastrarFalha {
 
 		dados = new MassaDados();
 		cadastrar = PageFactory.initElements(driver, Cadastrar_Page.class);
-		extent = ExtendReport.setExtent("TesteCadastrarFalha");
+		//extent = ExtendReport.setExtent("TesteCadastrarFalha");
 	}
 
 	@Test
-	public void cadastrar() throws Exception {
-		test = extent.createTest("CadastroFalha");
+	public void cadastrarFalha() throws Exception {
+		test = ExtendReport.createTest("CadastroFalha");
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-		cadastrar.preencherCadastro(dados.getUserNameFalha(), dados.getPassword(), dados.getEmail(), dados.getPhoneNumber(),
-				dados.getFristName(), dados.getLastName(), dados.getCountry(), dados.getPostalCode(), dados.getCity(),
-				dados.getState(), dados.getAddress());
+		cadastrar.preencherCadastro(dados.getUserNameFalha(), dados.getPassword(), dados.getEmail(),
+				dados.getPhoneNumber(), dados.getFristName(), dados.getLastName(), dados.getCountry(),
+				dados.getPostalCode(), dados.getCity(), dados.getState(), dados.getAddress());
 
 		cadastrar.clicaBtnRegistrar();
 
@@ -64,11 +69,10 @@ public class TesteCadastrarFalha {
 
 	@AfterMethod
 	public void encerrar(ITestResult result) throws Exception {
-		ExtendReport.tearDown(result, test);
+		ExtendReport.tearDown(result, test, driver);
 		ExtendReport.endReport(extent);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("scrollBy(0, -500)", "");
-		print.takeSnapShot("testeCadastroFalha");
 		DriverFactory.closeBrowser(driver);
 	}
 

@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite de Teste">
+	<test name="Automação Utilizando TDD">
+		<classes>
+			<class name="br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha" />
+			<class name="br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso" />
+			<class name="br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha" />
+			<class name="br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso" />
+			<class name="br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha" />
+			<class name="br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso" />
+		</classes>
+	</test>
+</suite>

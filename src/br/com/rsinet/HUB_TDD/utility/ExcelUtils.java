@@ -1,7 +1,6 @@
 package br.com.rsinet.HUB_TDD.utility;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -71,42 +70,4 @@ public class ExcelUtils {
 		}
 
 	}
-
-	@SuppressWarnings("deprecation")
-	public static void setCellData(String Result, int RowNum, int ColNum) throws Exception {
-
-		try {
-
-			Row = ExcelWSheet.getRow(RowNum);
-
-			Cell = Row.getCell(ColNum, org.apache.poi.ss.usermodel.Row.RETURN_BLANK_AS_NULL);
-
-			if (Cell == null) {
-
-				Cell = Row.createCell(ColNum);
-
-				Cell.setCellValue(Result);
-
-			} else {
-
-				Cell.setCellValue(Result);
-
-			}
-
-			FileOutputStream fileOut = new FileOutputStream(Constant.Path_TestData + Constant.File_TestData);
-
-			ExcelWBook.write(fileOut);
-
-			fileOut.flush();
-
-			fileOut.close();
-
-		} catch (Exception e) {
-
-			throw (e);
-
-		}
-
-	}
-
 }

@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -23,7 +24,6 @@ import br.com.rsinet.HUB_TDD.utility.DriverFactory;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.MassaDados;
-import br.com.rsinet.HUB_TDD.utility.print;
 
 public class TesteCadastrarSucesso {
 
@@ -34,8 +34,14 @@ public class TesteCadastrarSucesso {
 	private ExtentTest test;
 	private MassaDados dados;
 
+	@BeforeTest
+	public void a() {
+		extent = ExtendReport.setExtent();
+
+	}
+
 	@BeforeMethod
-	public void carregar() throws Exception {
+	public void carregarSucesso() throws Exception {
 		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
 
@@ -43,13 +49,12 @@ public class TesteCadastrarSucesso {
 		home.executaHomeCadastro(driver);
 		dados = new MassaDados();
 		cadastrar = PageFactory.initElements(driver, Cadastrar_Page.class);
-		extent = ExtendReport.setExtent("TesteCadastroSucesso");
 
 	}
 
 	@Test
 	public void cadastrar() throws Exception {
-		test = extent.createTest("CadastroSucesso");
+		test = ExtendReport.createTest("CadastroSucesso");
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		cadastrar.preencherCadastro(dados.getUserName(), dados.getPassword(), dados.getEmail(), dados.getPhoneNumber(),
@@ -67,10 +72,10 @@ public class TesteCadastrarSucesso {
 
 	@AfterMethod
 	public void encerrar(ITestResult result) throws Exception {
-		ExtendReport.tearDown(result, test);
-		ExtendReport.endReport(extent);
 		home.esperaHome(driver);
-		print.takeSnapShot("testeComSucesso");
+		ExtendReport.tearDown(result, test, driver);
+		ExtendReport.endReport(extent);
+		// print.takeSnapShot("testeComSucesso");
 		DriverFactory.closeBrowser(driver);
 	}
 

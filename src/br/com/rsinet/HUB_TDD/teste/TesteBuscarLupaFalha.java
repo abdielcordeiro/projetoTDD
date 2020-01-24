@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -20,7 +21,6 @@ import br.com.rsinet.HUB_TDD.utility.DriverFactory;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.MassaDados;
-import br.com.rsinet.HUB_TDD.utility.print;
 
 public class TesteBuscarLupaFalha {
 
@@ -30,18 +30,24 @@ public class TesteBuscarLupaFalha {
 	private ExtentTest test;
 	private MassaDados dados;
 
+
+	@BeforeTest
+	public void a() {
+		extent = ExtendReport.setExtent();
+	}
+
 	@BeforeMethod
 	public void carregar() throws Exception {
 		driver = DriverFactory.openBrowser(DriverType.CHROME, "http://www.advantageonlineshopping.com/#/");
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Pesquisa");
 		buscarLupa = PageFactory.initElements(driver, BuscarLupa_Page.class);
 		dados = new MassaDados();
-		extent = ExtendReport.setExtent("TesteBuscarLupaFalha");
+		//extent = ExtendReport.setExtent("TesteBuscarLupaFalha");
 	}
 
 	@Test
-	public void buscar() throws Exception {
-		test = extent.createTest("BuscaLupaFalha");
+	public void buscarLupaFalha() throws Exception {
+		test = ExtendReport.createTest("BuscaLupaFalha");
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		buscarLupa.bntLupa();
@@ -55,10 +61,10 @@ public class TesteBuscarLupaFalha {
 
 	@AfterMethod
 	public void finalizar(ITestResult result) throws Exception {
-		ExtendReport.tearDown(result, test);
+		ExtendReport.tearDown(result, test, driver);
 		ExtendReport.endReport(extent);
 
-		print.takeSnapShot("testeBuscaLupaFalha");
+		//print.takeSnapShot("testeBuscaLupaFalha");
 		DriverFactory.closeBrowser(driver);
 	}
 }

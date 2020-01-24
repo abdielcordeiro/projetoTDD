@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -20,7 +21,6 @@ import br.com.rsinet.HUB_TDD.utility.DriverFactory;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.MassaDados;
-import br.com.rsinet.HUB_TDD.utility.print;
 
 public class TesteBuscaCliqueSucesso {
 
@@ -30,18 +30,23 @@ public class TesteBuscaCliqueSucesso {
 	private ExtentTest test;
 	private MassaDados dados;
 
+	@BeforeTest
+	public void a() {
+		extent = ExtendReport.setExtent();
+	}
+
 	@BeforeMethod
 	public void carregar() throws Exception {
 		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Pesquisa");
 		buscarLupa = PageFactory.initElements(driver, BuscarLupa_Page.class);
-		extent = ExtendReport.setExtent("TesteBuscaSucesso");
+		//extent = ExtendReport.setExtent("TesteBuscaSucesso");
 		dados = new MassaDados();
 	}
 
 	@Test
-	public void executar() throws Exception {
-		test = extent.createTest("BuscaSucesso");
+	public void buscaCliqueSucesso() throws Exception {
+		test = ExtendReport.createTest("BuscaSucesso");
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -54,9 +59,9 @@ public class TesteBuscaCliqueSucesso {
 
 	@AfterMethod
 	public void finalizar(ITestResult result) throws Exception {
-		ExtendReport.tearDown(result, test);
+		ExtendReport.tearDown(result, test, driver);
 		ExtendReport.endReport(extent);
-		print.takeSnapShot("testeBuscaClickSucesso");
+		//print.takeSnapShot("testeBuscaClickSucesso");
 		DriverFactory.closeBrowser(driver);
 	}
 

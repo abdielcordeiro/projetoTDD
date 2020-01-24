@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -20,7 +21,6 @@ import br.com.rsinet.HUB_TDD.utility.DriverFactory;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
 import br.com.rsinet.HUB_TDD.utility.MassaDados;
-import br.com.rsinet.HUB_TDD.utility.print;
 
 public class TesteBuscaCliqueFalha {
 
@@ -30,6 +30,11 @@ public class TesteBuscaCliqueFalha {
 	private ExtentTest test;
 	private MassaDados dados;
 
+	@BeforeTest
+	public void a() {
+		extent = ExtendReport.setExtent();
+	}
+
 	@BeforeMethod
 	public void carregar() throws Exception {
 		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
@@ -37,12 +42,11 @@ public class TesteBuscaCliqueFalha {
 		buscarLupa = PageFactory.initElements(driver, BuscarLupa_Page.class);
 
 		dados = new MassaDados();
-		extent = ExtendReport.setExtent("TesteBuscarFalha");
 	}
 
 	@Test
-	public void executar() throws Exception {
-		test = extent.createTest("BuscaFalha");
+	public void BuscarCliqueFalha() throws Exception {
+		test = ExtendReport.createTest("BuscaFalha");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		buscarLupa.preencherPorduto(dados.getTipoProduto());
@@ -63,9 +67,8 @@ public class TesteBuscaCliqueFalha {
 
 	@AfterMethod
 	public void finalizar(ITestResult result) throws Exception {
-		ExtendReport.tearDown(result, test);
+		ExtendReport.tearDown(result, test, driver);
 		ExtendReport.endReport(extent);
-		print.takeSnapShot("testeBuscaClickFalha");
 		DriverFactory.closeBrowser(driver);
 	}
 

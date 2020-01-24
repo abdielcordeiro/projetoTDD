@@ -32,7 +32,7 @@ public class BuscarLupa_Page {
 	@FindBy(how = How.ID, using = "19")
 	private WebElement bnt_produto;
 
-	@FindBy(how = How.XPATH, using = "/html/body/div[3]/section/article[1]/div[2]/div[2]/div/div[2]/e-sec-plus-minus/div/div[3]")
+	@FindBy(how = How.XPATH, using = "//*[@id=\"productProperties\"]/div[2]/e-sec-plus-minus/div/div[3]")
 	private WebElement bnt_addProduto;
 
 	@FindBy(how = How.NAME, using = "save_to_cart")
@@ -46,7 +46,7 @@ public class BuscarLupa_Page {
 
 	public void pesquisaProdutoTela(WebDriver driver, String produto) {
 		WebElement element = driver.findElement(By.xpath("//*[. ='" + produto + "']"));
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 40);
 		WebElement bntProduto = wait.until(ExpectedConditions.elementToBeClickable(element));
 		bntProduto.click();
 	}
