@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="16185" started-at="2020-01-24T11:04:31 BRT" finished-at="2020-01-24T11:04:47 BRT">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="16185" started-at="2020-01-24T11:04:31 BRT" finished-at="2020-01-24T11:04:47 BRT">
+      <class name="br.com.rsinet.HUB_TDD.teste.TesteBuscaSucesso">
+        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaSucesso@1500955a]" name="carregar" is-config="true" duration-ms="11402" started-at="2020-01-24T11:04:31 BRT" finished-at="2020-01-24T11:04:42 BRT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- carregar -->
+        <test-method status="PASS" signature="executar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaSucesso@1500955a]" name="executar" duration-ms="3430" started-at="2020-01-24T11:04:42 BRT" finished-at="2020-01-24T11:04:45 BRT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executar -->
+        <test-method status="PASS" signature="finalizar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaSucesso@1500955a]" name="finalizar" is-config="true" duration-ms="1325" started-at="2020-01-24T11:04:45 BRT" finished-at="2020-01-24T11:04:47 BRT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=executar status=SUCCESS method=TesteBuscaSucesso.executar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaSucesso@1500955a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finalizar -->
+      </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteBuscaSucesso -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

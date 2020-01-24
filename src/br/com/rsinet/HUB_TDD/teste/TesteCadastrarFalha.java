@@ -21,6 +21,7 @@ import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
+import br.com.rsinet.HUB_TDD.utility.MassaDados;
 import br.com.rsinet.HUB_TDD.utility.print;
 
 public class TesteCadastrarFalha {
@@ -30,6 +31,7 @@ public class TesteCadastrarFalha {
 	private Cadastrar_Page cadastrar;
 	private ExtentReports extent = new ExtentReports();
 	private ExtentTest test;
+	private MassaDados dados;
 
 	@BeforeMethod
 	public void carregar() throws Exception {
@@ -39,6 +41,7 @@ public class TesteCadastrarFalha {
 		home = PageFactory.initElements(driver, Home_Page.class);
 		home.executaHomeCadastro(driver);
 
+		dados = new MassaDados();
 		cadastrar = PageFactory.initElements(driver, Cadastrar_Page.class);
 		extent = ExtendReport.setExtent("TesteCadastrarFalha");
 	}
@@ -48,36 +51,13 @@ public class TesteCadastrarFalha {
 		test = extent.createTest("CadastroFalha");
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-		String userName = ExcelUtils.getCellData(1, Constant.userName);
-
-		String password = ExcelUtils.getCellData(1, Constant.userPass);
-
-		String userEmail = ExcelUtils.getCellData(1, Constant.email);
-
-		String phoneNumber = ExcelUtils.getCellData(1, Constant.phoneNumber);
-
-		String fristName = ExcelUtils.getCellData(1, Constant.FristName);
-
-		String lastName = ExcelUtils.getCellData(1, Constant.LastName);
-
-		String pais = ExcelUtils.getCellData(1, Constant.Pais);
-
-		String cep = ExcelUtils.getCellData(1, Constant.CEP);
-
-		String city = ExcelUtils.getCellData(1, Constant.City);
-
-		String state = ExcelUtils.getCellData(1, Constant.State);
-
-		String address = ExcelUtils.getCellData(1, Constant.address);
-
-		cadastrar.preencherCadastro(userName, password, userEmail, phoneNumber, fristName, lastName, pais, cep, city,
-				state, address);
+		cadastrar.preencherCadastro(dados.getUserNameFalha(), dados.getPassword(), dados.getEmail(), dados.getPhoneNumber(),
+				dados.getFristName(), dados.getLastName(), dados.getCountry(), dados.getPostalCode(), dados.getCity(),
+				dados.getState(), dados.getAddress());
 
 		cadastrar.clicaBtnRegistrar();
 
-		String resposta = cadastrar.respostaCadastro();
-		System.out.println("Teste mensagem: " + resposta);
-		Assert.assertTrue(resposta.equals("Use maximum 15 character"),
+		Assert.assertTrue(cadastrar.respostaCadastro().equals("Use maximum 15 character"),
 				"Login de acesso invalido, mais caracteres do que o permitido");
 
 	}
@@ -86,7 +66,7 @@ public class TesteCadastrarFalha {
 	public void encerrar(ITestResult result) throws Exception {
 		ExtendReport.tearDown(result, test);
 		ExtendReport.endReport(extent);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("scrollBy(0, -500)", "");
 		print.takeSnapShot("testeCadastroFalha");
 		DriverFactory.closeBrowser(driver);

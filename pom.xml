@@ -82,7 +82,5 @@
 			<version>7.1.0</version>
 			<scope>test</scope>
 		</dependency>
-
-
 	</dependencies>
 </project>

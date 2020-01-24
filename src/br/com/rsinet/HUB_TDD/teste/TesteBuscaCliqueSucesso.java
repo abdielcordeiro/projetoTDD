@@ -19,21 +19,24 @@ import br.com.rsinet.HUB_TDD.utility.Constant;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory;
 import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
 import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
+import br.com.rsinet.HUB_TDD.utility.MassaDados;
 import br.com.rsinet.HUB_TDD.utility.print;
 
-public class TesteBuscaSucesso{
+public class TesteBuscaCliqueSucesso {
 
 	private WebDriver driver;
 	private BuscarLupa_Page buscarLupa;
 	private ExtentReports extent = new ExtentReports();
 	private ExtentTest test;
+	private MassaDados dados;
 
 	@BeforeMethod
 	public void carregar() throws Exception {
-		driver = DriverFactory.openBrowser(DriverType.FIREFOX, Constant.URL);
+		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Pesquisa");
 		buscarLupa = PageFactory.initElements(driver, BuscarLupa_Page.class);
 		extent = ExtendReport.setExtent("TesteBuscaSucesso");
+		dados = new MassaDados();
 	}
 
 	@Test
@@ -42,15 +45,11 @@ public class TesteBuscaSucesso{
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		String produto = ExcelUtils.getCellData(1, Constant.Produto);
-		buscarLupa.preencherPorduto(produto);
+		buscarLupa.preencherPorduto(dados.getTipoProduto());
 
-		String nomeProduto = ExcelUtils.getCellData(1, Constant.nomeProduto);
-		buscarLupa.pesquisaProdutoTela(driver, nomeProduto);
+		buscarLupa.pesquisaProdutoTela(driver, dados.getNomeProduto());
 
-		//buscarLupa.bntLupa();
-
-		Assert.assertTrue(nomeProduto.equals(nomeProduto),"Produto encontrado com sucesso");
+		Assert.assertTrue(dados.getNomeProduto().toUpperCase().equals(buscarLupa.resultadoProduto()), "Produto encontrado com sucesso");
 	}
 
 	@AfterMethod
