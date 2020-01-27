@@ -18,7 +18,7 @@ public class ExtendReport {
 	public static ExtentTest test;
 	public static ExtentReports extent;
 
-	public static ExtentReports setExtent() {
+	public static void setExtent() {
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/target/reports/suiteCabulosa.html");
 
 		htmlReporter.config().setDocumentTitle("Automatização de Teste");// Titulo do documento
@@ -33,11 +33,9 @@ public class ExtendReport {
 		extent.setSystemInfo("OS", "Windows10");
 		extent.setSystemInfo("Tester Name", "Abdiel");
 		extent.setSystemInfo("Browser", "Chrome");
-
-		return extent;
 	}
 
-	public static void endReport(ExtentReports extent) {
+	public static void endReport() {
 		extent.flush();
 	}
 

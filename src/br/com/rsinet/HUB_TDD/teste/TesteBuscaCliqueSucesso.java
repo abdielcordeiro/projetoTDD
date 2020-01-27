@@ -8,10 +8,8 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.HUB_TDD.extendReport.ExtendReport;
@@ -26,42 +24,51 @@ public class TesteBuscaCliqueSucesso {
 
 	private WebDriver driver;
 	private BuscarLupa_Page buscarLupa;
-	private ExtentReports extent = new ExtentReports();
 	private ExtentTest test;
 	private MassaDados dados;
 
-	@BeforeTest
-	public void a() {
-		extent = ExtendReport.setExtent();
-	}
-
 	@BeforeMethod
 	public void carregar() throws Exception {
+
+		/* Metodo que inicia o navegador e passa a URL */
 		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
+
+		/*
+		 * Metodo que instancia a o local e a planilha que seram utilizadas junto com a
+		 * aba da planilha
+		 */
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Pesquisa");
+
 		buscarLupa = PageFactory.initElements(driver, BuscarLupa_Page.class);
-		//extent = ExtendReport.setExtent("TesteBuscaSucesso");
+
 		dados = new MassaDados();
+		ExtendReport.setExtent();
 	}
 
 	@Test
 	public void buscaCliqueSucesso() throws Exception {
+
+		/* Criando o report e dando um nome */
 		test = ExtendReport.createTest("BuscaSucesso");
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		buscarLupa.preencherPorduto(dados.getTipoProduto());
-
 		buscarLupa.pesquisaProdutoTela(driver, dados.getNomeProduto());
 
-		Assert.assertTrue(dados.getNomeProduto().toUpperCase().equals(buscarLupa.resultadoProduto()), "Produto encontrado com sucesso");
+		/*
+		 * Metodo que compara se o produto escolhido e o mesmo qeu retornou da pagina, é
+		 * esperado que sejam o mesmo
+		 */
+		Assert.assertTrue(dados.getNomeProduto().toUpperCase().equals(buscarLupa.resultadoProduto()),
+				"Produto encontrado com sucesso");
 	}
 
 	@AfterMethod
 	public void finalizar(ITestResult result) throws Exception {
+
 		ExtendReport.tearDown(result, test, driver);
-		ExtendReport.endReport(extent);
-		//print.takeSnapShot("testeBuscaClickSucesso");
+		ExtendReport.endReport();
 		DriverFactory.closeBrowser(driver);
 	}
 
