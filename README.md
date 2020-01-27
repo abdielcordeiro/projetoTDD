@@ -33,4 +33,4 @@ D.	Print para todos os cenários(Sucesso/Falha).
      4-> print: Arquivo no qual sabe manipular os print como tirar um print e onde deve salvar o mesmo.
      5-> MassaDados: arquivo que sabem como obter os dados dos excel com os métodos get.
      
-     Dentro da pasta target contém os meus relatorios dos textes como também os print's obtidos nos textes.
+Dentro da pasta target contém os meus relatorios dos textes como também os print's obtidos nos textes.
