@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -31,6 +32,11 @@ public class TesteCadastrarSucesso {
 	private ExtentTest test;
 	private MassaDados dados;
 
+	@BeforeTest
+	public void report() {
+		ExtendReport.setExtent();
+	}
+
 	@BeforeMethod
 	public void carregarSucesso() throws Exception {
 
@@ -48,7 +54,6 @@ public class TesteCadastrarSucesso {
 
 		home.executaHomeCadastro(driver);
 		dados = new MassaDados();
-		ExtendReport.setExtent();
 	}
 
 	@Test

@@ -1,5 +1,8 @@
 package br.com.rsinet.HUB_TDD.extendReport;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 
@@ -18,8 +21,12 @@ public class ExtendReport {
 	public static ExtentTest test;
 	public static ExtentReports extent;
 
+	public static String pegaHora() {
+		return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+	}
+
 	public static void setExtent() {
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/target/reports/suiteCabulosa.html");
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/target/reports/suiteCabulosa_"+pegaHora()+".html");
 
 		htmlReporter.config().setDocumentTitle("Automatização de Teste");// Titulo do documento
 		htmlReporter.config().setReportName("Reporte Funcional");// Nome do reporte
@@ -45,7 +52,6 @@ public class ExtendReport {
 
 	public static void tearDown(ITestResult result, ExtentTest test, WebDriver driver) throws Exception {
 		String caminho = print.takeSnapShot(driver, result.getName());
-		System.out.println(caminho);
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, "Caso de teste falhou " + result.getName()); // Adiciona o nome na extenção reporte
 			test.log(Status.FAIL, "Caso de teste falhou " + result.getThrowable()); // Adiciona o erro/ exceção
