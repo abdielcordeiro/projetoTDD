@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite_de_Teste">
-              <span class="suite-name border-passed">Suite de Teste</span>
+              <span class="suite-name border-failed">Suite de Teste</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">6 methods,   6 passed</span>
+                    <span class="method-stats">6 methods, 1 failed,   5 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite_de_Teste" class="hide-methods failed suite-Suite_de_Teste"> (hide)</a> <!-- hide-methods failed suite-Suite_de_Teste -->
+                      <a href="#" panel-name="suite-Suite_de_Teste" class="show-methods failed suite-Suite_de_Teste"> (show)</a> <!-- show-methods failed suite-Suite_de_Teste -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite_de_Teste">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite_de_Teste" title="br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso" hash-for-method="cadastrar">cadastrar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite_de_Teste -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -122,11 +136,6 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite_de_Teste" title="br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso" hash-for-method="cadastrar">cadastrar</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite_de_Teste" title="br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha" hash-for-method="cadastrarFalha">cadastrarFalha</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -142,6 +151,43 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite_de_Teste" class="panel Suite_de_Teste">
+          <div class="suite-Suite_de_Teste-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="cadastrar">
+                  </a> <!-- cadastrar -->
+                  <span class="method-name">cadastrar</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=79.0.3945.130)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;RSI1538&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_231&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.130, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\ABDIEL~1.COR\AppDa...}, goog:chromeOptions: {debuggerAddress: localhost:50592}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: be784f15f1c55dab885b50be156e6162
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getCurrentUrl(RemoteWebDriver.java:287)
+	at org.openqa.selenium.support.ui.ExpectedConditions$3.apply(ExpectedConditions.java:109)
+	at org.openqa.selenium.support.ui.ExpectedConditions$3.apply(ExpectedConditions.java:104)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	at br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso.cadastrar(TesteCadastrarSucesso.java:72)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite_de_Teste-class-failed -->
           <div class="suite-Suite_de_Teste-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -168,21 +214,6 @@
                   <a name="BuscarCliqueFalha">
                   </a> <!-- BuscarCliqueFalha -->
                   <span class="method-name">BuscarCliqueFalha</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite_de_Teste-class-passed -->
-          <div class="suite-Suite_de_Teste-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="cadastrar">
-                  </a> <!-- cadastrar -->
-                  <span class="method-name">cadastrar</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -291,34 +322,34 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(6);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'BuscarCliqueFalha')
-data.setCell(0, 2, 'br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha')
-data.setCell(0, 3, 6115);
+data.setCell(0, 1, 'cadastrar')
+data.setCell(0, 2, 'br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso')
+data.setCell(0, 3, 25170);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'cadastrar')
-data.setCell(1, 2, 'br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso')
-data.setCell(1, 3, 4063);
+data.setCell(1, 1, 'BuscarCliqueFalha')
+data.setCell(1, 2, 'br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha')
+data.setCell(1, 3, 4713);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'buscaCliqueSucesso')
-data.setCell(2, 2, 'br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso')
-data.setCell(2, 3, 3862);
+data.setCell(2, 1, 'cadastrarFalha')
+data.setCell(2, 2, 'br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha')
+data.setCell(2, 3, 4020);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'cadastrarFalha')
-data.setCell(3, 2, 'br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha')
-data.setCell(3, 3, 3846);
+data.setCell(3, 1, 'buscaCliqueSucesso')
+data.setCell(3, 2, 'br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso')
+data.setCell(3, 3, 3912);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'buscarLupaSucesso')
 data.setCell(4, 2, 'br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso')
-data.setCell(4, 3, 3712);
+data.setCell(4, 3, 3903);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'buscarLupaFalha')
 data.setCell(5, 2, 'br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha')
-data.setCell(5, 3, 2404);
+data.setCell(5, 3, 2500);
 window.suiteTableData['Suite_de_Teste']= { tableData: data, tableDiv: 'times-div-Suite_de_Teste'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 24 seconds</span>
+              <span class="suite-total-time">Total running time: 44 seconds</span>
               <div id="times-div-Suite_de_Teste">
               </div> <!-- times-div-Suite_de_Teste -->
             </div> <!-- times-div -->
@@ -345,134 +376,96 @@ return data;
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">a</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-test before -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">a</span>
-                <span class="method-start">61 ms</span>
-              </div> <!-- configuration-test before -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">a</span>
-                <span class="method-start">61 ms</span>
-              </div> <!-- configuration-test before -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">a</span>
-                <span class="method-start">64 ms</span>
-              </div> <!-- configuration-test before -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">a</span>
-                <span class="method-start">65 ms</span>
-              </div> <!-- configuration-test before -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">a</span>
-                <span class="method-start">65 ms</span>
-              </div> <!-- configuration-test before -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">carregar</span>
-                <span class="method-start">78 ms</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">BuscarCliqueFalha</span>
-                <span class="method-start">11931 ms</span>
+                <span class="method-start">12334 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finalizar([TestResult name=BuscarCliqueFalha status=SUCCESS method=TesteBuscaCliqueFalha.BuscarCliqueFalha()[p...)</span>
-                <span class="method-start">18048 ms</span>
+                <span class="method-start">17047 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">carregar</span>
-                <span class="method-start">19128 ms</span>
+                <span class="method-start">18273 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">buscaCliqueSucesso</span>
-                <span class="method-start">29502 ms</span>
+                <span class="method-start">28327 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finalizar([TestResult name=buscaCliqueSucesso status=SUCCESS method=TesteBuscaCliqueSucesso.buscaCliqueSucesso...)</span>
-                <span class="method-start">33366 ms</span>
+                <span class="method-start">32243 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">carregar</span>
-                <span class="method-start">34420 ms</span>
+                <span class="method-start">33326 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">buscarLupaFalha</span>
-                <span class="method-start">44659 ms</span>
+                <span class="method-start">43377 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finalizar([TestResult name=buscarLupaFalha status=SUCCESS method=TesteBuscarLupaFalha.buscarLupaFalha()[pri:0,...)</span>
-                <span class="method-start">47064 ms</span>
+                <span class="method-start">45877 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">carregar</span>
-                <span class="method-start">48104 ms</span>
+                <span class="method-start">46947 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">buscarLupaSucesso</span>
-                <span class="method-start">58489 ms</span>
+                <span class="method-start">57072 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finalizar([TestResult name=buscarLupaSucesso status=SUCCESS method=TesteBuscarLupaSucesso.buscarLupaSucesso()[...)</span>
-                <span class="method-start">62201 ms</span>
+                <span class="method-start">60975 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">carregar</span>
-                <span class="method-start">63441 ms</span>
+                <span class="method-start">62035 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">cadastrarFalha</span>
-                <span class="method-start">75681 ms</span>
+                <span class="method-start">74384 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">encerrar([TestResult name=cadastrarFalha status=SUCCESS method=TesteCadastrarFalha.cadastrarFalha()[pri:0, in...)</span>
-                <span class="method-start">79529 ms</span>
+                <span class="method-start">78407 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">carregarSucesso</span>
-                <span class="method-start">84936 ms</span>
+                <span class="method-start">83924 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">cadastrar</span>
-                <span class="method-start">97057 ms</span>
+                <span class="method-start">96351 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">encerrar([TestResult name=cadastrar status=SUCCESS method=TesteCadastrarSucesso.cadastrar()[pri:0, instance:b...)</span>
-                <span class="method-start">101122 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">encerrar([TestResult name=cadastrar status=FAILURE method=TesteCadastrarSucesso.cadastrar()[pri:0, instance:b...)</span>
+                <span class="method-start">121525 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

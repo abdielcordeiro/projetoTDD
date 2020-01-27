@@ -5,20 +5,11 @@
     <classes>
       <class name="br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso">
         <methods>
-          <include name="a"/>
           <include name="encerrar"/>
-          <include name="carregar"/>
+          <include name="carregarSucesso"/>
           <include name="cadastrar"/>
         </methods>
       </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso -->
-      <class name="br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso">
-        <methods>
-          <include name="finalizar"/>
-          <include name="a"/>
-          <include name="buscar"/>
-          <include name="carregar"/>
-        </methods>
-      </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso -->
     </classes>
   </test> <!-- Automação Utilizando TDD(failed) -->
 </suite> <!-- Failed suite [Suite de Teste] -->
