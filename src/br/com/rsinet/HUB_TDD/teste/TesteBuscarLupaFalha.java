@@ -37,6 +37,7 @@ public class TesteBuscarLupaFalha {
 	public void carregar() throws Exception {
 
 		/* Metodo que inicia o navegador e passa a URL */
+
 		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
 
 		/*
