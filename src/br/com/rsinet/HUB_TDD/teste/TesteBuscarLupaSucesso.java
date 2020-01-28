@@ -37,7 +37,7 @@ public class TesteBuscarLupaSucesso {
 	public void carregar() throws Exception {
 
 		/* Metodo que inicia o navegador e passa a URL */
-		driver = DriverFactory.openBrowser(DriverType.CHROME, "http://www.advantageonlineshopping.com/#/");
+		driver = DriverFactory.openBrowser(DriverType.CHROME, Constant.URL);
 
 		/*
 		 * Metodo que instancia a o local e a planilha que seram utilizadas junto com a
