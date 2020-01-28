@@ -30,7 +30,7 @@ public class DriverFactory {
 			driver.get(url);
 			break;
 		default:
-			System.setProperty("webdriver.chromedriver.driver",
+			System.setProperty("webdriver.chrome.driver",
 					"./drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
