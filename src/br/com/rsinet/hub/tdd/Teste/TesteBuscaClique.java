@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,11 +18,11 @@ import br.com.rsinet.hub.tdd.ExtendReport.ExtendReport;
 import br.com.rsinet.hub.tdd.PageFactory.BuscarLupa_Page;
 import br.com.rsinet.hub.tdd.Utilidades.Constant;
 import br.com.rsinet.hub.tdd.Utilidades.DriverFactory;
+import br.com.rsinet.hub.tdd.Utilidades.DriverFactory.DriverType;
 import br.com.rsinet.hub.tdd.Utilidades.ExcelUtils;
 import br.com.rsinet.hub.tdd.Utilidades.MassaDados;
-import br.com.rsinet.hub.tdd.Utilidades.DriverFactory.DriverType;
 
-public class TesteBuscaCliqueFalha {
+public class TesteBuscaClique {
 
 	private WebDriver driver;
 	private BuscarLupa_Page buscarLupa;
@@ -32,7 +33,6 @@ public class TesteBuscaCliqueFalha {
 	public void report() {
 		ExtendReport.setExtent();
 	}
-
 
 	@BeforeMethod
 	public void carregar() throws Exception {
@@ -52,6 +52,25 @@ public class TesteBuscaCliqueFalha {
 	}
 
 	@Test
+	public void buscaCliqueSucesso() throws Exception {
+
+		/* Criando o report e dando um nome */
+		test = ExtendReport.createTest("BuscaSucesso");
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		buscarLupa.preencherPorduto(dados.getTipoProduto());
+		buscarLupa.pesquisaProdutoTela(driver, dados.getNomeProduto());
+
+		/*
+		 * Metodo que compara se o produto escolhido e o mesmo qeu retornou da pagina, é
+		 * esperado que sejam o mesmo
+		 */
+		Assert.assertTrue(dados.getNomeProduto().toUpperCase().equals(buscarLupa.resultadoProduto()),
+				"Produto encontrado com sucesso");
+	}
+
+	@Test
 	public void BuscarCliqueFalha() throws Exception {
 
 		/* Criando o report e dando um nome */
@@ -61,7 +80,7 @@ public class TesteBuscaCliqueFalha {
 		buscarLupa.preencherPorduto(dados.getTipoProduto());
 		buscarLupa.pesquisaProdutoTela(driver, dados.getNomeProduto());
 
-		/*Laço de repetição para adicionar X quantidade de produtos */
+		/* Laço de repetição para adicionar X quantidade de produtos */
 		for (int i = 0; i < dados.getQuantidadeProduto(); i++) {
 			buscarLupa.bntAddProduto();
 		}
@@ -80,9 +99,14 @@ public class TesteBuscaCliqueFalha {
 
 	@AfterMethod
 	public void finalizar(ITestResult result) throws Exception {
+
 		ExtendReport.tearDown(result, test, driver);
-		ExtendReport.endReport();
 		DriverFactory.closeBrowser(driver);
+	}
+
+	@AfterTest
+	public void finalizaReporte() {
+		ExtendReport.endReport();
 	}
 
 }
