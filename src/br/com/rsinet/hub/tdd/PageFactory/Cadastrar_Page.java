@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_TDD.pageFactory;
+package br.com.rsinet.hub.tdd.PageFactory;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -51,23 +51,57 @@ public class Cadastrar_Page {
 	@FindBy(how = How.NAME, using = "countryListboxRegisterPage")
 	private WebElement input_country;
 
-	public void preencherCadastro(String userName, String password, String userEmail, String phoneNumber,
-			String fristName, String lastName, String country, String cep, String city, String state, String address) {
+	public void preencherNomeUsuario(String nome) {
+		this.input_userName.sendKeys(nome);
+	}
 
-		this.input_userName.sendKeys(userName);
-		this.input_email.sendKeys(userEmail);
-		this.input_senha.sendKeys(password);
-		this.input_confirmaSenha.sendKeys(password);
-		this.input_fristName.sendKeys(fristName);
-		this.input_lastName.sendKeys(lastName);
-		this.input_phoneNumber.sendKeys(phoneNumber);
-		this.input_country.sendKeys(country);
-		this.input_city.sendKeys(city);
-		this.input_address.sendKeys(address);
-		this.input_state.sendKeys(state);
+	public void preencherSenha(String senha) {
+		this.input_senha.sendKeys(senha);
+	}
+
+	public void preencherConfirmaSenha(String senha) {
+		this.input_confirmaSenha.sendKeys(senha);
+	}
+
+	public void preencherEmail(String email) {
+		this.input_email.sendKeys(email);
+	}
+
+	public void preencherPrimeiroNome(String primeiroNome) {
+		this.input_fristName.sendKeys(primeiroNome);
+	}
+
+	public void preencherUltimoNome(String ultimoNome) {
+		this.input_lastName.sendKeys(ultimoNome);
+	}
+
+	public void preencherTelefone(String numero) {
+		this.input_phoneNumber.sendKeys(numero);
+	}
+
+	public void preencherPais(String pais) {
+		this.input_country.click();
+		this.input_country.sendKeys(pais);
+	}
+
+	public void preencherCidade(String cidade) {
+		this.input_city.sendKeys(cidade);
+	}
+
+	public void preencherEndereco(String endereco) {
+		this.input_address.sendKeys(endereco);
+	}
+
+	public void preencherEstado(String estado) {
+		this.input_state.sendKeys(estado);
+	}
+
+	public void preencherCodigoPostal(String cep) {
 		this.input_cep.sendKeys(cep);
-		this.bnt_concordar.click();
+	}
 
+	public void clicarBtnConcordo() {
+		this.bnt_concordar.click();
 	}
 
 	public void clicaBtnRegistrar() {

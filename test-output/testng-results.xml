@@ -1,161 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite de Teste" duration-ms="91751" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:15:48 BRT">
+  <suite name="Default suite" duration-ms="33242" started-at="2020-02-19T11:33:08 BRT" finished-at="2020-02-19T11:33:42 BRT">
     <groups>
     </groups>
-    <test name="Automação Utilizando TDD" duration-ms="91751" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:15:48 BRT">
-      <class name="br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso">
-        <test-method status="PASS" signature="report()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso@6c49835d]" name="report" is-config="true" duration-ms="0" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:14:16 BRT">
+    <test name="Default test" duration-ms="33242" started-at="2020-02-19T11:33:08 BRT" finished-at="2020-02-19T11:33:42 BRT">
+      <class name="br.com.rsinet.hub.tdd.Teste.TesteCadastrar">
+        <test-method status="PASS" signature="report()[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156]" name="report" is-config="true" duration-ms="76" started-at="2020-02-19T11:33:08 BRT" finished-at="2020-02-19T11:33:08 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- report -->
-        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso@6c49835d]" name="carregar" is-config="true" duration-ms="10210" started-at="2020-01-27T14:15:02 BRT" finished-at="2020-01-27T14:15:12 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- carregar -->
-        <test-method status="PASS" signature="buscarLupaSucesso()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso@6c49835d]" name="buscarLupaSucesso" duration-ms="3329" started-at="2020-01-27T14:15:12 BRT" finished-at="2020-01-27T14:15:15 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- buscarLupaSucesso -->
-        <test-method status="PASS" signature="finalizar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso@6c49835d]" name="finalizar" is-config="true" duration-ms="1129" started-at="2020-01-27T14:15:15 BRT" finished-at="2020-01-27T14:15:17 BRT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=buscarLupaSucesso status=SUCCESS method=TesteBuscarLupaSucesso.buscarLupaSucesso()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso@6c49835d] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- finalizar -->
-      </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaSucesso -->
-      <class name="br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha">
-        <test-method status="PASS" signature="report()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha@7c29daf3]" name="report" is-config="true" duration-ms="62" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:14:16 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- report -->
-        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha@7c29daf3]" name="carregar" is-config="true" duration-ms="11324" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:14:28 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- carregar -->
-        <test-method status="PASS" signature="BuscarCliqueFalha()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha@7c29daf3]" name="BuscarCliqueFalha" duration-ms="4807" started-at="2020-01-27T14:14:28 BRT" finished-at="2020-01-27T14:14:33 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BuscarCliqueFalha -->
-        <test-method status="PASS" signature="finalizar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha@7c29daf3]" name="finalizar" is-config="true" duration-ms="1234" started-at="2020-01-27T14:14:33 BRT" finished-at="2020-01-27T14:14:34 BRT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=BuscarCliqueFalha status=SUCCESS method=TesteBuscaCliqueFalha.BuscarCliqueFalha()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha@7c29daf3] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- finalizar -->
-      </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueFalha -->
-      <class name="br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso">
-        <test-method status="PASS" signature="report()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso@67205a84]" name="report" is-config="true" duration-ms="0" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:14:16 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- report -->
-        <test-method status="PASS" signature="carregarSucesso()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso@67205a84]" name="carregarSucesso" is-config="true" duration-ms="11764" started-at="2020-01-27T14:15:32 BRT" finished-at="2020-01-27T14:15:44 BRT">
+        <test-method status="PASS" signature="carregarSucesso()[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156]" name="carregarSucesso" is-config="true" duration-ms="12845" started-at="2020-02-19T11:33:08 BRT" finished-at="2020-02-19T11:33:21 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- carregarSucesso -->
-        <test-method status="PASS" signature="cadastrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso@67205a84]" name="cadastrar" duration-ms="3017" started-at="2020-01-27T14:15:44 BRT" finished-at="2020-01-27T14:15:47 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- cadastrar -->
-        <test-method status="PASS" signature="encerrar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso@67205a84]" name="encerrar" is-config="true" duration-ms="1289" started-at="2020-01-27T14:15:47 BRT" finished-at="2020-01-27T14:15:48 BRT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=cadastrar status=SUCCESS method=TesteCadastrarSucesso.cadastrar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso@67205a84] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- encerrar -->
-      </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteCadastrarSucesso -->
-      <class name="br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha">
-        <test-method status="PASS" signature="report()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha@5a8806ef]" name="report" is-config="true" duration-ms="0" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:14:16 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- report -->
-        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha@5a8806ef]" name="carregar" is-config="true" duration-ms="10055" started-at="2020-01-27T14:14:48 BRT" finished-at="2020-01-27T14:14:59 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- carregar -->
-        <test-method status="PASS" signature="buscarLupaFalha()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha@5a8806ef]" name="buscarLupaFalha" duration-ms="2367" started-at="2020-01-27T14:14:59 BRT" finished-at="2020-01-27T14:15:01 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- buscarLupaFalha -->
-        <test-method status="PASS" signature="finalizar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha@5a8806ef]" name="finalizar" is-config="true" duration-ms="1036" started-at="2020-01-27T14:15:01 BRT" finished-at="2020-01-27T14:15:02 BRT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=buscarLupaFalha status=SUCCESS method=TesteBuscarLupaFalha.buscarLupaFalha()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha@5a8806ef] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- finalizar -->
-      </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteBuscarLupaFalha -->
-      <class name="br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha">
-        <test-method status="PASS" signature="report()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha@5e853265]" name="report" is-config="true" duration-ms="0" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:14:16 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- report -->
-        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha@5e853265]" name="carregar" is-config="true" duration-ms="11775" started-at="2020-01-27T14:15:17 BRT" finished-at="2020-01-27T14:15:28 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- carregar -->
-        <test-method status="PASS" signature="cadastrarFalha()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha@5e853265]" name="cadastrarFalha" duration-ms="2508" started-at="2020-01-27T14:15:28 BRT" finished-at="2020-01-27T14:15:31 BRT">
+        <test-method status="PASS" signature="cadastrarFalha()[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156]" name="cadastrarFalha" duration-ms="2882" started-at="2020-02-19T11:33:21 BRT" finished-at="2020-02-19T11:33:24 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cadastrarFalha -->
-        <test-method status="PASS" signature="encerrar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha@5e853265]" name="encerrar" is-config="true" duration-ms="1094" started-at="2020-01-27T14:15:31 BRT" finished-at="2020-01-27T14:15:32 BRT">
+        <test-method status="PASS" signature="encerrar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156]" name="encerrar" is-config="true" duration-ms="1035" started-at="2020-02-19T11:33:24 BRT" finished-at="2020-02-19T11:33:25 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=cadastrarFalha status=SUCCESS method=TesteCadastrarFalha.cadastrarFalha()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha@5e853265] output={null}]]]>
+                <![CDATA[[TestResult name=cadastrarFalha status=SUCCESS method=TesteCadastrar.cadastrarFalha()[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- encerrar -->
-      </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteCadastrarFalha -->
-      <class name="br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso">
-        <test-method status="PASS" signature="report()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso@9660f4e]" name="report" is-config="true" duration-ms="0" started-at="2020-01-27T14:14:16 BRT" finished-at="2020-01-27T14:14:16 BRT">
+        <test-method status="PASS" signature="carregarSucesso()[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156]" name="carregarSucesso" is-config="true" duration-ms="11799" started-at="2020-02-19T11:33:25 BRT" finished-at="2020-02-19T11:33:37 BRT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- report -->
-        <test-method status="PASS" signature="carregar()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso@9660f4e]" name="carregar" is-config="true" duration-ms="10107" started-at="2020-01-27T14:14:34 BRT" finished-at="2020-01-27T14:14:44 BRT">
+        </test-method> <!-- carregarSucesso -->
+        <test-method status="PASS" signature="cadastrarSucesso()[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156]" name="cadastrarSucesso" duration-ms="3412" started-at="2020-02-19T11:33:37 BRT" finished-at="2020-02-19T11:33:40 BRT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- carregar -->
-        <test-method status="PASS" signature="buscaCliqueSucesso()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso@9660f4e]" name="buscaCliqueSucesso" duration-ms="3495" started-at="2020-01-27T14:14:44 BRT" finished-at="2020-01-27T14:14:47 BRT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- buscaCliqueSucesso -->
-        <test-method status="PASS" signature="finalizar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso@9660f4e]" name="finalizar" is-config="true" duration-ms="1105" started-at="2020-01-27T14:14:47 BRT" finished-at="2020-01-27T14:14:48 BRT">
+        </test-method> <!-- cadastrarSucesso -->
+        <test-method status="PASS" signature="encerrar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156]" name="encerrar" is-config="true" duration-ms="982" started-at="2020-02-19T11:33:40 BRT" finished-at="2020-02-19T11:33:41 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=buscaCliqueSucesso status=SUCCESS method=TesteBuscaCliqueSucesso.buscaCliqueSucesso()[pri:0, instance:br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso@9660f4e] output={null}]]]>
+                <![CDATA[[TestResult name=cadastrarSucesso status=SUCCESS method=TesteCadastrar.cadastrarSucesso()[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- finalizar -->
-      </class> <!-- br.com.rsinet.HUB_TDD.teste.TesteBuscaCliqueSucesso -->
-    </test> <!-- Automação Utilizando TDD -->
-  </suite> <!-- Suite de Teste -->
+        </test-method> <!-- encerrar -->
+        <test-method status="PASS" signature="finalizaReporte()[pri:0, instance:br.com.rsinet.hub.tdd.Teste.TesteCadastrar@1efed156]" name="finalizaReporte" is-config="true" duration-ms="182" started-at="2020-02-19T11:33:41 BRT" finished-at="2020-02-19T11:33:42 BRT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finalizaReporte -->
+      </class> <!-- br.com.rsinet.hub.tdd.Teste.TesteCadastrar -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_TDD.teste;
+package br.com.rsinet.hub.tdd.Teste;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,15 +13,15 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.HUB_TDD.extendReport.ExtendReport;
-import br.com.rsinet.HUB_TDD.pageFactory.BuscarLupa_Page;
-import br.com.rsinet.HUB_TDD.utility.Constant;
-import br.com.rsinet.HUB_TDD.utility.DriverFactory;
-import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
-import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
-import br.com.rsinet.HUB_TDD.utility.MassaDados;
+import br.com.rsinet.hub.tdd.ExtendReport.ExtendReport;
+import br.com.rsinet.hub.tdd.PageFactory.BuscarLupa_Page;
+import br.com.rsinet.hub.tdd.Utilidades.Constant;
+import br.com.rsinet.hub.tdd.Utilidades.DriverFactory;
+import br.com.rsinet.hub.tdd.Utilidades.ExcelUtils;
+import br.com.rsinet.hub.tdd.Utilidades.MassaDados;
+import br.com.rsinet.hub.tdd.Utilidades.DriverFactory.DriverType;
 
-public class TesteBuscarLupaFalha {
+public class TesteBuscarLupaSucesso {
 
 	private WebDriver driver;
 	private BuscarLupa_Page buscarLupa;
@@ -51,25 +51,24 @@ public class TesteBuscarLupaFalha {
 	}
 
 	@Test
-	public void buscarLupaFalha() throws Exception {
+	public void buscarLupaSucesso() throws Exception {
 
 		/* Criando o report e dando um nome */
-		test = ExtendReport.createTest("BuscaLupaFalha");
+		test = ExtendReport.createTest("BuscaLupaSucesso");
 
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 
 		buscarLupa.bntLupa();
-		buscarLupa.input_Produto(dados.getNomeProdutoFalha());
-		buscarLupa.bntLupa();
+		buscarLupa.input_Produto(dados.getTipoProduto());
+		buscarLupa.bntX(driver);
+		buscarLupa.pesquisaProdutoTela(driver, dados.getNomeProduto());
 
 		/*
-		 * Metodo que valida se a mensagem de produto não encontrada esta sendo
-		 * mostranda
+		 * Metodo que valida se o produto que estava buscando pela lupa foi encontrado
+		 * com sucesso
 		 */
-		Assert.assertTrue(
-				buscarLupa.label_Respota().equals("No results for " + "\"" + dados.getNomeProdutoFalha() + "\""),
-				"Produto: " + dados.getNomeProdutoFalha() + "  não encontrado");
-
+		Assert.assertTrue(buscarLupa.resultadoProduto().equals(dados.getNomeProduto().toUpperCase()),
+				"Produto encontrado com sucesso");
 	}
 
 	@AfterMethod

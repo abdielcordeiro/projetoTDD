@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_TDD.pageFactory;
+package br.com.rsinet.hub.tdd.PageFactory;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

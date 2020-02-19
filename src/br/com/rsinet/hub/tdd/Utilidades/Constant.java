@@ -1,10 +1,10 @@
-package br.com.rsinet.HUB_TDD.utility;
+package br.com.rsinet.hub.tdd.Utilidades;
 
 public class Constant {
 
 	public static final String URL = "http://www.advantageonlineshopping.com/#/";
 
-	public static final String Path_TestData = "..\\projetoTDD\\src\\br\\com\\rsinet\\HUB_TDD\\testData\\";
+	public static final String Path_TestData = "..\\projetoTDD\\src\\br\\com\\rsinet\\hub\\tdd\\testData\\";
 
 	public static final String File_TestData = "BancoDados.xlsx";
 

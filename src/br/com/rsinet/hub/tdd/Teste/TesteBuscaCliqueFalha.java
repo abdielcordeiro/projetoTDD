@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_TDD.teste;
+package br.com.rsinet.hub.tdd.Teste;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,13 +13,13 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.HUB_TDD.extendReport.ExtendReport;
-import br.com.rsinet.HUB_TDD.pageFactory.BuscarLupa_Page;
-import br.com.rsinet.HUB_TDD.utility.Constant;
-import br.com.rsinet.HUB_TDD.utility.DriverFactory;
-import br.com.rsinet.HUB_TDD.utility.DriverFactory.DriverType;
-import br.com.rsinet.HUB_TDD.utility.ExcelUtils;
-import br.com.rsinet.HUB_TDD.utility.MassaDados;
+import br.com.rsinet.hub.tdd.ExtendReport.ExtendReport;
+import br.com.rsinet.hub.tdd.PageFactory.BuscarLupa_Page;
+import br.com.rsinet.hub.tdd.Utilidades.Constant;
+import br.com.rsinet.hub.tdd.Utilidades.DriverFactory;
+import br.com.rsinet.hub.tdd.Utilidades.ExcelUtils;
+import br.com.rsinet.hub.tdd.Utilidades.MassaDados;
+import br.com.rsinet.hub.tdd.Utilidades.DriverFactory.DriverType;
 
 public class TesteBuscaCliqueFalha {
 

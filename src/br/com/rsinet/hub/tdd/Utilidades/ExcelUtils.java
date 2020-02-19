@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_TDD.utility;
+package br.com.rsinet.hub.tdd.Utilidades;
 
 import java.io.FileInputStream;
 
