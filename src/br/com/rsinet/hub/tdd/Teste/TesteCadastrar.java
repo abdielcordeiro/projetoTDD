@@ -107,7 +107,6 @@ public class TesteCadastrar {
 		cadastrar.preencherPrimeiroNome(dados.getPrimeiroNome());
 		cadastrar.preencherUltimoNome(dados.getUltimoNome());
 		cadastrar.preencherPais(dados.getPais());
-
 		cadastrar.preencherCodigoPostal(dados.getPostalCode());
 		cadastrar.preencherCidade(dados.getCidade());
 		cadastrar.preencherEstado(dados.getEstado());

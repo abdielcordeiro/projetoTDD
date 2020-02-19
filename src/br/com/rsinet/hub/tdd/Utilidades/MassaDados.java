@@ -22,10 +22,6 @@ public class MassaDados {
 		return palavraRandom;
 	}
 
-	public String getNomeUsuarioExcel() throws Exception {
-		return ExcelUtils.getCellDataString(linha, Constant.UserName);
-	}
-
 	public String getSenha() throws Exception {
 		return ExcelUtils.getCellDataString(linha, Constant.UserPass);
 	}

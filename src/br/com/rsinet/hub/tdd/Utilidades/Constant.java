@@ -11,8 +11,6 @@ public class Constant {
 	/*
 	 * Cadastrar novo Usuário
 	 */
-	public static final int UserName = 0;
-	public static final int UserNameFalha = 1;
 	public static final int UserPass = 2;
 	public static final int Email = 3;
 	public static final int FristName = 4;
